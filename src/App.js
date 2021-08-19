@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { saveAs } from 'file-saver'
+import skrik from './images/skrik.jpg'
+import syktBarn from './images/syktbarn.jpg'
 
-function App() {
+const mockImgs = [
+  skrik,
+  syktBarn
+]
+
+const App = () => {
+  const [imgIndex, setImgIndex] = useState(0)
+
+  const downlaodImage = () => {
+    saveAs(mockImgs[imgIndex % 2], 'image.jpg')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <h1>Kun Stig</h1>
+      <img width="200" alt="AI generated image" src={mockImgs[imgIndex % 2]} />
+      <button onClick={() => setImgIndex(imgIndex + 1)}>nytt bilde</button>
+      <button onClick={downlaodImage}>last ned</button>
+    </main>
   );
 }
 

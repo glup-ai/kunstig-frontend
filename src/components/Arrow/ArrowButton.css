@@ -1,0 +1,23 @@
+
+.arrowButtonContainer {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.arrowButton { 
+    color: blue;
+    fill: blue;
+    font-weight: 900;
+    background: none;
+    outline: none;
+    border: none;
+	cursor: pointer;
+    font-family: inherit;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.arrowButton:hover {
+    transform: scale(1.1);
+}

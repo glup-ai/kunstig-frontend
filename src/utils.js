@@ -18,3 +18,9 @@ import p from './images/munch/16.png'
 const images = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p]
 
 export const mockImage = () => images[Math.round(Math.random() * images.length)];
+
+export const pingServer = () => {
+    fetch("https://glup-stig-wa.azurewebsites.net/")
+        .then(response => response.json())
+        .then(data => console.log(data));
+}

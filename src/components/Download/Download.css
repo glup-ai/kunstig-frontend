@@ -1,0 +1,14 @@
+.downloadIcon{
+    fill: blue;
+    transform: rotate(90deg);
+}
+
+.donwloadIconContainer {
+    border: 1px solid blue; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+}

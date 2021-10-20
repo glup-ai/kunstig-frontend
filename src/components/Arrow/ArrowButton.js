@@ -5,7 +5,7 @@ const ArrowButton = ({ handleOnClick, rotation }) => {
     return (
         <div className="arrowButtonContainer">
             <button
-                className="arrowButton" onClick={() => handleOnClick}
+                className="arrowButton" onClick={() => handleOnClick()}
             >
                 <img
                     src={arrow}

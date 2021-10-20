@@ -9,7 +9,7 @@ const App = () => {
     pingServer()
   }, [])
   return (<main className="mainContainer">
-    <h1 className="title">KUNSTIG | AI-GENERERT KUNST. INSPIRERT AV <span className="currentModel">{artist}</span></h1>
+    <h1 className="title">KUNSTIG | AI-GENERERT KUNST.</h1>
     <Gallery />
   </main>)
 }

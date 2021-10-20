@@ -52,7 +52,7 @@ const Gallery = () => {
         <section className="galleryContainer">
             <div className="galleryImgContainer">
                 <ArrowButton handleOnClick={previousImage} rotation="left" />
-                <img width="300" alt="AI-generated art by kunstig" src={currentImage} />
+                <img alt="AI-generated art by kunstig" src={currentImage} />
                 <ArrowButton handleOnClick={fetchImage} rotation="right" />
             </div>
             <div className="galleryDowloadButtonContainer">

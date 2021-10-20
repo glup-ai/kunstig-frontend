@@ -14,7 +14,7 @@ const Gallery = () => {
     })
 
     const fetchImage = () => {
-        fetch("https://glup-stig-wa.azurewebsites.net/munch")
+        fetch("https://glup-stig-wa.azurewebsites.net/portrait")
             .then(response => {
                 if (!response.ok) {
                     throw Error(response.statusText);

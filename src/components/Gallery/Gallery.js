@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 import { saveAs } from 'file-saver'
 
@@ -12,6 +14,8 @@ const Gallery = () => {
         currIndex: null,
         images: []
     })
+
+    const [isLoading, setIsLoading] = useState(true)
 
     const fetchImage = () => {
         fetch("https://glup-stig-wa.azurewebsites.net/portrait")
@@ -27,6 +31,7 @@ const Gallery = () => {
                     currIndex: imageState.currIndex === null ? 0 : imageState.currIndex + 1,
                     images: [...imageState.images, URL.createObjectURL(blob)]
                 })
+                setIsLoading(false)
 
             })
 
@@ -34,7 +39,7 @@ const Gallery = () => {
 
     useEffect(() => {
         fetchImage()
-    }, [])
+    }, [isLoading])
 
     const downlaodImage = (img) => {
         saveAs(img, 'image.jpg')
@@ -51,8 +56,21 @@ const Gallery = () => {
     return (
         <section className="galleryContainer">
             <div className="galleryImgContainer">
+
                 <ArrowButton handleOnClick={previousImage} rotation="left" />
-                <img alt="AI-generated art by kunstig" src={currentImage} />
+                <div className="imageContainer">
+                    {isLoading
+                        ?
+                        <Loader
+                            type="Rings"
+                            color="#00BFFF"
+                            height={100}
+                            width={100}
+                            visible={isLoading}
+                        />
+                        :
+                        <img alt="AI-generated art by kunstig" src={currentImage} />}
+                </div>
                 <ArrowButton handleOnClick={fetchImage} rotation="right" />
             </div>
             <div className="galleryDowloadButtonContainer">

@@ -2,8 +2,11 @@ import './ArrowButton.css';
 import arrow from './arrow.png';
 
 const ArrowButton = ({ handleOnClick, rotation }) => {
+    const style = rotation === "left" ? { marginLeft: "10vw" } : { marginRight: "10vw" }
     return (
-        <div className="arrowButtonContainer">
+        <div
+            className="arrowButtonContainer"
+            style={style}>
             <button
                 className="arrowButton" onClick={() => handleOnClick()}
             >
@@ -14,7 +17,7 @@ const ArrowButton = ({ handleOnClick, rotation }) => {
                     alt={rotation === "left" ? "Previous image" : "Next image"}
                 />
             </button>
-        </div>
+        </div >
 
     )
 }

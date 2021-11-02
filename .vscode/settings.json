@@ -1,4 +1,4 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/cc62b1df-1553-434b-92ad-26cbe637f5ba/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/glup-kunstig-frontend",
+    "appService.defaultWebAppToDeploy": "",
     "appService.deploySubpath": "."
 }

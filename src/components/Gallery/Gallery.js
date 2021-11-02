@@ -42,7 +42,9 @@ const Gallery = () => {
     }, [isLoading])
 
     const downlaodImage = (img) => {
-        saveAs(img, 'image.jpg')
+        if (img) {
+            saveAs(img, 'image.jpg')
+        }
     }
 
     const previousImage = () => {

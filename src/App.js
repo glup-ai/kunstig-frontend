@@ -3,11 +3,11 @@ import Gallery from './components/Gallery/Gallery.js';
 import { pingServer } from './utils.js';
 import './App.css'
 const App = () => {
-  const artist = "MUNCH"
 
   useEffect(() => {
     pingServer()
   }, [])
+
   return (<main className="mainContainer">
     <h1 className="title">KUNSTIG | AI-GENERERT KUNST.</h1>
     <Gallery />

@@ -71,7 +71,7 @@ const Gallery = () => {
                         :
                         <img alt="AI-generated art by kunstig" src={currentImage} />}
                 </div>
-                <ArrowButton handleOnClick={fetchImage} rotation="right" />
+                <ArrowButton handleOnClick={() => setIsLoading(!isLoading)} rotation="right" />
             </div>
             <div className="galleryDowloadButtonContainer">
                 <button className="galleryButton" onClick={() => downlaodImage(currentImage)}><Download /></button>

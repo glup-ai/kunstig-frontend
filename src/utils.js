@@ -20,7 +20,7 @@ const images = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p]
 export const mockImage = () => images[Math.round(Math.random() * images.length)];
 
 export const pingServer = () => {
-    fetch("https://glup-stig-wa.azurewebsites.net/")
+    fetch("https://glup-kunstig-api.azurewebsites.net/")
         .then(response => response.json())
         .then(data => console.log(data));
 }

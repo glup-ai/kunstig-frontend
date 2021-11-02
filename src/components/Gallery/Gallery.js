@@ -18,7 +18,7 @@ const Gallery = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     const fetchImage = () => {
-        fetch("https://glup-stig-wa.azurewebsites.net/portrait")
+        fetch("https://glup-kunstig-api.azurewebsites.net/portrait")
             .then(response => {
                 if (!response.ok) {
                     throw Error(response.statusText);

@@ -4,9 +4,6 @@
 name: Build and deploy kunstig frontend to Azure Web App - glup-stig-fewa
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
   
 env:

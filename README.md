@@ -1,6 +1,5 @@
 # Kunstig (Frontend)
-This Kunstig React App displays beautiful images from Kunstig's trained models. 
-
+This Kunstig React App displays beautiful images from Kunstig's trained models. Kunstig is a General Adversial Network (GAN) we in Glup.ai have trained to create beautiful art pieces 💖
 ## Check out our deployed webapp
 https://glup-kunstig-galleri.azurewebsites.net/
 

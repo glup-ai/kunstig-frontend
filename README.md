@@ -11,10 +11,15 @@ https://glup-kunstig-galleri.azurewebsites.net/
 - Node
 - npm
 
-### `npm i`
-Install requirements
+### Install requirements
+```
+npm i
+```
 
-### `npm start`
-Run the app in development mode
+
+### Run the app in development mode
+```
+npm start
+```
 
 

@@ -1,5 +1,5 @@
 export const pingServer = () => {
-  fetch(getBaseUrl() + '/')
+  fetch(getBaseUrl())
     .then((response) => response.json())
     .then((data) => console.log(data));
 };
@@ -9,6 +9,6 @@ export const getBaseUrl = () => {
   if (runOnLocalServer) {
     return '';
   } else {
-    return 'https://glup-kunstig-api.azurewebsites.net/portrait';
+    return 'https://glup-kunstig-api.azurewebsites.net/';
   }
 };

@@ -6,7 +6,7 @@ import './index.scss';
 
 import App from './App';
 import Models from './components/Models';
-import Gallery from './components/Gallery';
+import { Gallery } from './components/Gallery/Gallery';
 
 ReactDOM.render(
   <React.StrictMode>

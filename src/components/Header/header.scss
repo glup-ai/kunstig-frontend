@@ -1,0 +1,28 @@
+@import '../../utils/variables.scss';
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+
+    height: 75px;
+    width: 100%;
+
+    background-color: $secondary-color;
+    color: $primary-color;
+
+    font-size: 24px;
+}
+
+.headerTitle {
+    margin-right: 100px;
+    margin-left: 25px;
+}
+
+.headerLink {
+    text-decoration: none;
+    color: $primary-color;
+    &:hover {
+        background-color: $primary-color;
+        color: $secondary-color;
+    }
+}

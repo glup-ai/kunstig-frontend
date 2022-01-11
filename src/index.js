@@ -1,14 +1,12 @@
 import React from 'react';
-import { 
-  BrowserRouter, 
-  Routes,
-  Route 
-} from "react-router-dom";
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import './index.scss';
+
 import App from './App';
 import Models from './components/Models';
-import Gallery from './components/Gallery/Gallery.js';
+import Gallery from './components/Gallery';
 
 ReactDOM.render(
   <React.StrictMode>

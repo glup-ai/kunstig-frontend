@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Header from './components/Header.js';
+import Header from './components/Header';
 import { pingServer } from './utils.js';
 import './App.css'
 const App = () => {
@@ -10,8 +10,8 @@ const App = () => {
 
   return (<main className="mainContainer">
     <Header/>
+        
   </main>)
 }
-
 
 export default App;

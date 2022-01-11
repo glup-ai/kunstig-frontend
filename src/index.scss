@@ -1,0 +1,15 @@
+@import './utils/variables.scss';
+
+body {
+    margin: 0;
+    background-color: $primary-color;
+    color: $secondary-color;
+    font-family: 'Roboto Mono', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}

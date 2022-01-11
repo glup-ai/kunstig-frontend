@@ -1,5 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import './index.css';
+
 export const AboutUs: FunctionComponent = () => {
   return (
     <div className="page">

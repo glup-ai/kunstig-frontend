@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Gallery from './components/Gallery/Gallery.js';
+import Header from './components/Header.js';
 import { pingServer } from './utils.js';
 import './App.css'
 const App = () => {
@@ -9,8 +9,7 @@ const App = () => {
   }, [])
 
   return (<main className="mainContainer">
-    <h1 className="title">KUNSTIG | AI-GENERERT KUNST.</h1>
-    <Gallery />
+    <Header/>
   </main>)
 }
 

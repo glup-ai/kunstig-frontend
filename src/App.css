@@ -5,9 +5,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 .title {
-    position: absolute; 
+    position: absolute;
     top: 0;
     left: 5px;
     font-size: medium;
@@ -16,4 +17,3 @@
 .currentModel {
     color: #ff6700;
 }
-

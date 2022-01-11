@@ -13,8 +13,6 @@ const App = () => {
   return (
     <main className="mainContainer">
       <Header />
-      <h1 className="title">KUNSTIG | AI-GENERERT KUNST.</h1>
-      {aboutUs ? <AboutUs /> : <Gallery />}
     </main>
   );
 };

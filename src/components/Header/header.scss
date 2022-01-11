@@ -14,13 +14,19 @@
 }
 
 .headerTitle {
-    margin-right: 100px;
-    margin-left: 25px;
+    margin-right: 25%;
+    margin-left: 15px;
 }
 
 .headerLink {
+    display: flex;
+    align-items: center;
+
     text-decoration: none;
     color: $primary-color;
+
+    margin-right: 30px;
+    height: 96%;
     &:hover {
         background-color: $primary-color;
         color: $secondary-color;

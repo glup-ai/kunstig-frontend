@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Header from './components/Header';
 import { pingServer } from './utils/utils';
-import './App.css';
+import './App.scss';
 const App = () => {
   useEffect(() => {
     pingServer();
@@ -10,6 +10,7 @@ const App = () => {
   return (
     <main className="mainContainer">
       <Header />
+      Dette er App
     </main>
   );
 };

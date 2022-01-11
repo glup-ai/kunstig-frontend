@@ -7,6 +7,7 @@ import { saveAs } from 'file-saver';
 import Download from '../Download/Download.js';
 import ArrowButton from '../Arrow/ArrowButton';
 import './Gallery.css';
+import { getBaseUrl } from '../../utils/utils.js';
 
 export const Gallery: FunctionComponent = () => {
   const [images, setImages] = useState([]);
@@ -15,7 +16,7 @@ export const Gallery: FunctionComponent = () => {
 
   const fetchImage = () => {
     setIsLoading(true);
-    fetch('portrait')
+    fetch(getBaseUrl() + 'portrait')
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -34,7 +35,7 @@ export const Gallery: FunctionComponent = () => {
   useEffect(() => {
     const fetchImageInitially = () => {
       setIsLoading(true);
-      fetch('portrait')
+      fetch(getBaseUrl() + 'portrait')
         .then((response) => {
           if (!response.ok) {
             throw Error(response.statusText);

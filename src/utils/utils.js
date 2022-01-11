@@ -4,8 +4,9 @@ export const pingServer = () => {
     .then((data) => console.log(data));
 };
 
+const runOnLocalServer = false;
 export const getBaseUrl = () => {
-  if (process.env.NODE_ENV !== 'production') {
+  if (runOnLocalServer) {
     return '';
   } else {
     return 'https://glup-kunstig-api.azurewebsites.net/portrait';

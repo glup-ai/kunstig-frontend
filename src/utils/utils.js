@@ -4,7 +4,7 @@ export const pingServer = () => {
     .then((data) => console.log(data));
 };
 
-const runOnLocalServer = true;
+const runOnLocalServer = false;
 export const getBaseUrl = () => {
   if (runOnLocalServer) {
     return '';

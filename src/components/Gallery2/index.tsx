@@ -1,21 +1,29 @@
 import { FunctionComponent } from "react";
 import Header from "../Header";
 import { mockImages } from "../../utils/utils";
+import './gallery.scss';
 
-const Gallery2: FunctionComponent = () => {
-    
+interface ImageProps {
+    path: string; 
+}
+const Image: FunctionComponent<ImageProps> = ({ path }) =>
+    <div className="imageContainer">
+        <img src={path} alt={""}/>
+    </div>
+
+const Gallery: FunctionComponent = () => {
     return (
     <>
         <Header/>
-        <section>
-            <div data-aos="fade-up">
-                <img src={mockImages[0]}/>
+        <section className="galleryContainer">
+            <div className="imagesContainer">
+            {mockImages.map((img, index) =>
+                <Image key={index} path={img}/>
+            )}
             </div>
-            <div data-aos='fade-up'>   
-                <p>I am animated!</p>
-            </div>
+
         </section>
     </>); 
 }
 
-export default Gallery2; 
+export default Gallery;

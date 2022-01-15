@@ -1,0 +1,17 @@
+.galleryContainer {
+  display: flex;
+  justify-content: center;
+
+}
+
+.imageContainer {
+  margin: 15px;
+}
+
+.imagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  width: 80%;
+}

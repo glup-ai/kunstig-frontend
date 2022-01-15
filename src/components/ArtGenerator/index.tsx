@@ -6,7 +6,7 @@ import { saveAs } from 'file-saver';
 
 import Download from '../Download/Download.js';
 import ArrowButton from '../Arrow/ArrowButton';
-import './Gallery.css';
+import './artgenerator.css';
 import { getBaseUrl } from '../../utils/utils.js';
 
 export const Gallery: FunctionComponent = () => {
@@ -64,8 +64,8 @@ export const Gallery: FunctionComponent = () => {
   };
 
   return (
-    <section className="galleryContainer">
-      <div className="galleryImgContainer">
+    <section className="artgeneratorContainer">
+      <div className="artgeneratorImageContainer">
         <ArrowButton
           handleOnClick={previousImage}
           rotation="left"
@@ -90,9 +90,9 @@ export const Gallery: FunctionComponent = () => {
           disabled={isLoading}
         />
       </div>
-      <div className="galleryDowloadButtonContainer">
+      <div className="dowloadButtonContainer">
         <button
-          className="galleryButton"
+          className="artgeneratorButtonContainer"
           onClick={() => downlaodImage(images[currIndex])}
         >
           <Download />

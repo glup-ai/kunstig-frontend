@@ -7,16 +7,16 @@ import './index.scss';
 import App from './App';
 import Models from './components/Models';
 import { AboutUs } from './components/AboutUs/AboutUs';
-import Gallery2 from './components/Gallery2';
+import Gallery from './components/Gallery2';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}></Route>
-        <Route path="/modeller" element={<Models />}></Route>
-        <Route path="/galleri" element={<Gallery2 />}></Route>
-        <Route path="/om" element={<AboutUs />}></Route>
+        <Route path="/" element={<App/>}/>
+        <Route path="/modeller" element={<Models/>}/>
+        <Route path="/galleri" element={<Gallery/>}/>
+        <Route path="/om" element={<AboutUs/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

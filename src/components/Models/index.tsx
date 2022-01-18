@@ -1,7 +1,7 @@
 import {FunctionComponent, useEffect, useState} from "react";
 import {getModels} from "../../utils/async";
 import {Model} from "../../utils/types";
-
+import './models.scss'
 
 interface ModelProps {
     displayName: string;

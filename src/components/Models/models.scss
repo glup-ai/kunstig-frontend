@@ -1,8 +1,25 @@
+@import '../../utils/variables.scss';
+
 .modelsContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 90%;
 }
 
 .modelContainer {
   font-size: 32px;
+  font-family: 'Press Start 2P', cursive;
+  color: $primary-color;
+  background-color: $model-background-color;
+  padding: 24px;
+  margin-left: 5px;
+  transform: scale(1);
+  transition: transform 0.2s ease;
+
+  &:hover{
+    transform: scale(1.1);
+    color: $secondary-color;
+  }
+
 }

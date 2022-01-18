@@ -1,9 +1,7 @@
 import Header from './components/Header';
 import './App.scss';
 import  { Models } from "./components/Models";
-import {FunctionComponent, useEffect, useState} from "react";
-import {getModels} from "./utils/async";
-import {Model} from "./utils/types";
+import {FunctionComponent} from "react";
 
 const App: FunctionComponent = () => {
     return (

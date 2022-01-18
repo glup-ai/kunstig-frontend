@@ -9,7 +9,7 @@ import ArrowButton from '../Arrow/ArrowButton';
 import './artgenerator.css';
 import { getBaseUrl } from '../../utils/utils.js';
 
-export const Gallery: FunctionComponent = () => {
+export const ArtGenerator: FunctionComponent = () => {
   const [images, setImages] = useState([]);
   const [currIndex, setCurrIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -102,4 +102,4 @@ export const Gallery: FunctionComponent = () => {
   );
 };
 
-export default Gallery;
+export default ArtGenerator;

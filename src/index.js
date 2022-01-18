@@ -5,9 +5,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.scss';
 
 import App from './App';
-import Models from './components/Models';
+import { Models } from './components/Models';
 import { AboutUs } from './components/AboutUs/AboutUs';
-import Gallery from './components/Gallery2';
+import Gallery from './components/Gallery';
 
 ReactDOM.render(
   <React.StrictMode>

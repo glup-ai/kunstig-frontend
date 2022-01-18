@@ -7,11 +7,11 @@ import { GalleryAsync } from "../../utils/types";
 
 interface ImageProps {
     path: string;
-    name: string;
+    name?: string;
 }
 const Image: FunctionComponent<ImageProps> = ({ path, name }) =>
     <div className="imageContainer">
-        <img src={path} alt={`Art-piece made by ${name}`}/>
+        <img src={path} alt={`Art-piece made by ${name ?? "Kunstig"}`}/>
     </div>
 
 export const Gallery: FunctionComponent = () => {
@@ -28,7 +28,7 @@ export const Gallery: FunctionComponent = () => {
         <section className="galleryContainer">
             <div className="imagesContainer">
             {gallery?.images?.map((img, index) =>
-                <Image key={index} path={img} name={name}/>
+                <Image key={index} path={img} name={gallery?.displayName}/>
             )}
             </div>
         </section>

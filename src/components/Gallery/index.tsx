@@ -1,29 +1,36 @@
-import { FunctionComponent } from "react";
+import {FunctionComponent, useEffect, useState} from "react";
 import Header from "../Header";
-import { mockImages } from "../../utils/utils";
 import './gallery.scss';
+import {useParams} from "react-router-dom";
+import {fetchImagePaths} from "../../utils/async";
+import { GalleryAsync } from "../../utils/types";
 
 interface ImageProps {
-    path: string; 
+    path: string;
+    name: string;
 }
-const Image: FunctionComponent<ImageProps> = ({ path }) =>
+const Image: FunctionComponent<ImageProps> = ({ path, name }) =>
     <div className="imageContainer">
-        <img src={path} alt={""}/>
+        <img src={path} alt={`Art-piece made by ${name}`}/>
     </div>
 
-const Gallery: FunctionComponent = () => {
+export const Gallery: FunctionComponent = () => {
+    const { name } = useParams();
+
+    const [gallery, setGallery] = useState<GalleryAsync>();
+    useEffect(() => {
+        fetchImagePaths(name)
+            .then(response => setGallery(response))
+    })
     return (
     <>
         <Header/>
         <section className="galleryContainer">
             <div className="imagesContainer">
-            {mockImages.map((img, index) =>
-                <Image key={index} path={img}/>
+            {gallery?.images?.map((img, index) =>
+                <Image key={index} path={img} name={name}/>
             )}
             </div>
-
         </section>
     </>); 
 }
-
-export default Gallery;

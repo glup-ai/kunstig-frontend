@@ -1,29 +1,32 @@
 import {FunctionComponent, useEffect, useState} from "react";
-import {getModels} from "../../utils/async";
+import {fetchModels} from "../../utils/async";
 import {Model} from "../../utils/types";
 import './models.scss'
+import {Link} from "react-router-dom";
 
 interface ModelProps {
     displayName: string;
+    name: string;
 }
-const ModelLink: FunctionComponent<ModelProps> = ({displayName}) => (
+const ModelLink: FunctionComponent<ModelProps> = ({displayName, name}) => {
+    return (
     <div className="modelContainer">
-        {displayName}
+        <Link className="modelLink" to={`/galleri/${name}`}>{displayName}</Link>
     </div>
-)
+)}
 
 
 export const Models: FunctionComponent = () => {
     const [models, setModels] = useState<Model[]>([])
     useEffect(() => {
-        getModels()
+        fetchModels()
             .then(response => setModels(response.models))
     }, [])
 
     return (
         <section className="modelsContainer">
             {models.map((model, index) =>
-                <ModelLink displayName={model.displayName} key={index}/>
+                <ModelLink displayName={model.displayName} name={model.name} key={index}/>
             )}
         </section>
     );

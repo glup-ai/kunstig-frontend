@@ -16,7 +16,11 @@ export const ArtGenerator: FunctionComponent = () => {
 
   const fetchImage = () => {
     setIsLoading(true);
-    fetch(getBaseUrl() + 'portrait')
+    fetch(getBaseUrl() + 'generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({ "model": "portrait"})
+    })
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -35,7 +39,11 @@ export const ArtGenerator: FunctionComponent = () => {
   useEffect(() => {
     const fetchImageInitially = () => {
       setIsLoading(true);
-      fetch(getBaseUrl() + 'portrait')
+      fetch(getBaseUrl() + 'generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ "model": "portrait"})
+      })
         .then((response) => {
           if (!response.ok) {
             throw Error(response.statusText);

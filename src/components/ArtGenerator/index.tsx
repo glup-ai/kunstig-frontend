@@ -8,6 +8,7 @@ import Download from '../Download/Download.js';
 import ArrowButton from '../Arrow/ArrowButton';
 import './artgenerator.css';
 import { getBaseUrl } from '../../utils/utils.js';
+import Header from "../Header";
 
 export const ArtGenerator: FunctionComponent = () => {
   const [images, setImages] = useState([]);
@@ -16,7 +17,11 @@ export const ArtGenerator: FunctionComponent = () => {
 
   const fetchImage = () => {
     setIsLoading(true);
-    fetch(getBaseUrl() + 'portrait')
+    fetch(getBaseUrl() + 'generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({ "model": "portrait"})
+    })
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -35,7 +40,11 @@ export const ArtGenerator: FunctionComponent = () => {
   useEffect(() => {
     const fetchImageInitially = () => {
       setIsLoading(true);
-      fetch(getBaseUrl() + 'portrait')
+      fetch(getBaseUrl() + 'generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ "model": "portrait"})
+      })
         .then((response) => {
           if (!response.ok) {
             throw Error(response.statusText);
@@ -64,41 +73,44 @@ export const ArtGenerator: FunctionComponent = () => {
   };
 
   return (
-    <section className="artgeneratorContainer">
-      <div className="artgeneratorImageContainer">
-        <ArrowButton
-          handleOnClick={previousImage}
-          rotation="left"
-          disabled={isLoading}
-        />
-        <div className="imageContainer">
-          {isLoading ? (
-            <Loader
-              type="Rings"
-              color="#00BFFF"
-              height={100}
-              width={100}
-              visible={isLoading}
+      <>
+        <Header />
+        <section className="artgeneratorContainer">
+          <div className="artgeneratorImageContainer">
+            <ArrowButton
+                handleOnClick={previousImage}
+                rotation="left"
+                disabled={isLoading}
             />
-          ) : (
-            <img alt="AI-generated art by kunstig" src={images[currIndex]} />
-          )}
-        </div>
-        <ArrowButton
-          handleOnClick={() => fetchImage()}
-          rotation="right"
-          disabled={isLoading}
-        />
-      </div>
-      <div className="dowloadButtonContainer">
-        <button
-          className="artgeneratorButtonContainer"
-          onClick={() => downlaodImage(images[currIndex])}
-        >
-          <Download />
-        </button>
-      </div>
-    </section>
+            <div className="imageContainer">
+              {isLoading ? (
+                  <Loader
+                      type="Rings"
+                      color="#00BFFF"
+                      height={100}
+                      width={100}
+                      visible={isLoading}
+                  />
+              ) : (
+                  <img alt="AI-generated art by kunstig" src={images[currIndex]} />
+              )}
+            </div>
+            <ArrowButton
+                handleOnClick={() => fetchImage()}
+                rotation="right"
+                disabled={isLoading}
+            />
+          </div>
+          <div className="dowloadButtonContainer">
+            <button
+                className="artgeneratorButtonContainer"
+                onClick={() => downlaodImage(images[currIndex])}
+            >
+              <Download />
+            </button>
+          </div>
+        </section>
+      </>
   );
 };
 

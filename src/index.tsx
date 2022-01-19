@@ -17,6 +17,7 @@ ReactDOM.render(
         <Route path="/" element={<App/>}/>
         <Route path="/modeller" element={<Models/>}/>
         <Route path="/galleri/:name" element={<Gallery/>}/>
+        <Route path="/galleri" element={<Gallery/>}/>
         <Route path="/om" element={<AboutUs/>}/>
         <Route path="/generer" element={<ArtGenerator/>}/>
       </Routes>

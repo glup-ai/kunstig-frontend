@@ -14,6 +14,8 @@ const Image: FunctionComponent<ImageProps> = ({ path, name }) =>
         <img src={path} alt={`Art-piece made by ${name ?? "Kunstig"}`}/>
     </div>
 
+
+// TODO: no name from url should fetch images from all models
 export const Gallery: FunctionComponent = () => {
     const { name } = useParams();
 

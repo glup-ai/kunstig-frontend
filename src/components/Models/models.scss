@@ -21,9 +21,10 @@
   overflow-y: hidden;
   white-space:nowrap;
 
-
   -ms-overflow-style: none;  // IE and Edge
   scrollbar-width: none;  // Firefox
+
+
 }
 .modelLinksContainer::-webkit-scrollbar { display: none;}
 
@@ -45,13 +46,60 @@
 
   &:hover{
     transform: scale(1.1);
+
+    .modelLink{
+      color: $secondary-color;
+    }
+
+    .modelLinkLine {
+      &:after{
+        content: '';
+        position: absolute;
+        display: block;
+        top: 87px;
+        left: 24px;
+        width: -webkit-calc(100% - 48px);
+        height: 3px;
+        background: yellow;
+        z-index: 1;
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: animateLinkLine 0.5s forwards;
+      }
+    }
   }
 }
 
 .modelLink {
   color: $primary-color;
+  text-decoration: none;
+}
 
-  &:hover{
-    color: $secondary-color;
+.modelLinkLine {
+  &:before {
+    content: '';
+    position: fixed;
+    right: 0;
+    bottom: 10px;
+    z-index: 1;
   }
 }
+
+@keyframes animateLinkLine {
+  0% {
+    transform: translateX(0) scaleX(0);
+    transform-origin: left;
+    left: 24px;
+    right: auto;
+  }
+
+  100% {
+    transform: translateX(0) scaleX(1);
+    transform-origin: left;
+    left: 24px;
+    right: auto;
+  }
+}
+
+
+

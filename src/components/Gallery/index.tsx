@@ -18,7 +18,7 @@ const Image = ({img, name, setDisplayImage}: ImageProps) => {
         setIsClicked(!isClicked)
     }
     return (
-        <div onClick={handleOnClick}>
+        <div className="image" onClick={handleOnClick}>
             <img
                 className="imageContainer"
                 src={img}
@@ -47,7 +47,6 @@ export const Gallery: FunctionComponent = () => {
     const { name } = useParams();
     const [gallery, setGallery] = useState<GalleryAsync>();
     const [displayImage, setDisplayImage] = useState<string>()
-    console.log(displayImage)
 
     useEffect(() => {
         fetchImagePaths(name)

@@ -4,15 +4,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   height: 90%;
+
 }
+.modelLinksContainer {
+  height: 60%;
+  width: 80%;
+
+
+  display: flex;
+  justify-content: center; // TODO: should be changed when we add more models
+  align-items: center;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap;
+
+
+  -ms-overflow-style: none;  // IE and Edge
+  scrollbar-width: none;  // Firefox
+}
+.modelLinksContainer::-webkit-scrollbar { display: none;}
 
 .modelContainer {
+  display: flex;
+  align-items: center;
+
+  max-width: 600px;
+  height: 75px;
+  padding: 24px;
+  margin-left: 20px;
+
   font-size: 32px;
   font-family: 'Press Start 2P', cursive;
+
   background-color: $model-background-color;
-  padding: 24px;
-  margin-left: 5px;
   transform: scale(1);
   transition: transform 0.2s ease;
 

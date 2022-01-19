@@ -17,6 +17,7 @@ const ModelLink: FunctionComponent<ModelProps> = ({displayName, name}) => {
 
 
 export const Models: FunctionComponent = () => {
+
     const [models, setModels] = useState<Model[]>([])
     useEffect(() => {
         fetchModels()
@@ -25,9 +26,11 @@ export const Models: FunctionComponent = () => {
 
     return (
         <section className="modelsContainer">
+            <div className="modelLinksContainer">
             {models.map((model, index) =>
                 <ModelLink displayName={model.displayName} name={model.name} key={index}/>
             )}
+            </div>
         </section>
     );
 };

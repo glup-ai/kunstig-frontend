@@ -1,8 +1,6 @@
-import a from '../images/munch/1.png';
-import b from '../images/munch/2.png';
-import c from '../images/munch/3.png';
-import d from '../images/munch/4.png';
-import e from '../images/munch/5.png';
+
+import f from '../images/1024.jpeg';
+export const mockImages = [f, f, f,f, f, f, f, f, f, f]
 
 export const pingServer = () => {
   fetch(getBaseUrl())
@@ -20,4 +18,3 @@ export const getBaseUrl = () => {
   }
 };
 
-export const mockImages = [a, b, c, d, e] 

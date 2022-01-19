@@ -1,4 +1,4 @@
-$image-margin: 15px;
+@import "../../utils/variables";
 
 .galleryContainer {
   display: flex;
@@ -14,13 +14,46 @@ $image-margin: 15px;
   column-count: 5;
   -webkit-column-gap: 0;
   -moz-column-gap: 0;
-  column-gap: $image-margin;
+  column-gap: $gallery-image-margin;
 
   img {
     width: 100% !important;
     height: auto !important;
   }
 }
+
+.imageContainer {
+  margin-top: 0;
+  margin-bottom: $gallery-image-margin;
+}
+
+.displayImage {
+  position: fixed;
+  top: calc(50% - 512px + 75px); // center = half the screen - half the image + half the header
+  left: calc(50% - 512px);
+  width: 1024px;
+  height: 1024px;
+  background-color: red;
+  animation: animateDisplayImage 1s forwards;
+
+  > button {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    background-color: $primary-color;
+
+    color: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+    font-size: 24px;
+    font-weight: bolder;
+  }
+
+}
+
 
 @media (max-width: 1200px) {
   .imagesContainer {
@@ -51,7 +84,12 @@ $image-margin: 15px;
   }
 }
 
-.imageContainer {
-  margin-top: 0;
-  margin-bottom: $image-margin;
+@keyframes animateDisplayImage {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

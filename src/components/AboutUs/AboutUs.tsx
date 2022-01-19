@@ -1,9 +1,12 @@
 import { FunctionComponent } from 'react';
 import './index.css';
+import Header from "../Header";
 
 export const AboutUs: FunctionComponent = () => {
   return (
-    <div className="page">
+     <>
+       <Header/>
+      <section className="page">
       <div className="video-responsive">
         <iframe
           width="1024"
@@ -13,7 +16,7 @@ export const AboutUs: FunctionComponent = () => {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        />
       </div>
       <div className="text-content">
         <h1>Om prosjektet </h1>
@@ -33,6 +36,7 @@ export const AboutUs: FunctionComponent = () => {
           veggen.
         </p>
       </div>
-    </div>
+    </section>
+     </>
   );
 };

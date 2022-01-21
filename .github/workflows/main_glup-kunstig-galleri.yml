@@ -55,11 +55,11 @@ jobs:
         uses: jsdaniell/create-json@1.1.2
         with:
           # The name of the file to be written. | file.json 
-          name: process
+          name: process.json
           # The json string that can be a secret of the github repo or a string of a json. | "{"title": "my json"}" 
           json: '{ script: "serve", env: { PM2_SERVE_SPA: "true", PM2_SERVE_HOMEPAGE: "/index.html" } }'
           # Optional subfolder directory to save the json file. | src/ 
-          dir: build
+          dir: ./build
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp

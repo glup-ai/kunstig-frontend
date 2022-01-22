@@ -4,16 +4,13 @@ import Loader from 'react-loader-spinner';
 
 import { saveAs } from 'file-saver';
 
-import Download from '../Download/Download.js';
-import ArrowButton from '../Arrow/ArrowButton';
 import './artgenerator.scss';
 import { getBaseUrl } from '../../utils/utils.js';
 import Header from "../Header";
 import { useParams } from "react-router-dom";
 
 export const ArtGenerator: FunctionComponent = () => {
-  const [images, setImages] = useState([]);
-  const [currIndex, setCurrIndex] = useState(null);
+  let [image, setImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   const { name } = useParams();
@@ -34,36 +31,14 @@ export const ArtGenerator: FunctionComponent = () => {
       })
       .then((response) => response.blob())
       .then((blob) => {
-        setImages([...images, URL.createObjectURL(blob)]);
-        setCurrIndex(currIndex + 1);
-
+        setImage(URL.createObjectURL(blob));
         setIsLoading(false);
       });
   };
 
   useEffect(() => {
-    const fetchImageInitially = () => {
-      setIsLoading(true);
-      fetch(getBaseUrl() + 'generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ "model": model })
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw Error(response.statusText);
-          }
-          return response;
-        })
-        .then((response) => response.blob())
-        .then((blob) => {
-          setImages([URL.createObjectURL(blob)]);
-          setCurrIndex(0);
-
-          setIsLoading(false);
-        });
-    };
-    fetchImageInitially();
+    fetchImage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const downloadImage = (img) => {
@@ -72,20 +47,11 @@ export const ArtGenerator: FunctionComponent = () => {
     }
   };
 
-  const previousImage = () => {
-    setCurrIndex(currIndex > 0 ? currIndex - 1 : 0);
-  };
-
   return (
     <>
       <Header />
       <section className="artgeneratorContainer">
         <div className="artgeneratorImageContainer">
-          <ArrowButton
-            handleOnClick={previousImage}
-            rotation="left"
-            disabled={isLoading}
-          />
           <div className="imageContainer">
             {isLoading ? (
               <Loader
@@ -96,21 +62,23 @@ export const ArtGenerator: FunctionComponent = () => {
                 visible={isLoading}
               />
             ) : (
-              <img alt="AI-generated art by kunstig" src={images[currIndex]} />
+              <img alt="AI-generated art by kunstig" src={image} />
             )}
           </div>
-          <ArrowButton
-            handleOnClick={() => fetchImage()}
-            rotation="right"
-            disabled={isLoading}
-          />
         </div>
-        <div className="downloadButtonContainer">
-          <button
-            className="artgeneratorButtonContainer"
-            onClick={() => downloadImage(images[currIndex])}
+        <div className="actionButtonsContainer">
+        <button
+            className="actionButtonContainer"
+            onClick={() => fetchImage()}
           >
-            <Download />
+            Generate new image
+          </button>
+
+          <button
+            className="actionButtonContainer"
+            onClick={() => downloadImage(image)}
+          >
+            Download image
           </button>
         </div>
       </section>

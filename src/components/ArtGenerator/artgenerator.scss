@@ -18,20 +18,21 @@
     justify-content: space-between;
 }
 
-.downloadButtonContainer{
+.actionButtonsContainer{
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: center;
 }
 
-.artgeneratorButtonContainer {
+.actionButtonContainer {
     width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $primary-color;
-    border: none;
+    color: $primary-color;
+    margin: 0px 10px;
+    width: 200px;
 }
 
 .galleryButton { 
@@ -56,6 +57,7 @@
     align-items: center;
     max-width: 512px; 
     height: 512px;
+    margin: 50px auto;
 }
 
 .imageContainer img {

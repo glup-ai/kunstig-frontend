@@ -4,7 +4,6 @@ import './gallery.scss';
 import {useParams} from "react-router-dom";
 import {fetchImagePaths} from "../../utils/async";
 import { GalleryAsync } from "../../utils/types";
-import {mockImages} from "../../utils/utils";
 
 interface ImageProps {
     img: string;
@@ -15,7 +14,6 @@ interface ImageProps {
 const Image = ({img, name, setDisplayImage, index}: ImageProps) => {
     const [isClicked, setIsClicked] = useState(false)
     const handleOnClick = () => {
-        console.log("heo")
         setDisplayImage(!isClicked ? img : "")
         setIsClicked(!isClicked)
     }
@@ -45,11 +43,7 @@ const DisplayImage = ({ img, removeSetDisplay }: DisplayImageProps) =>  (
 // TODO: no name from url should fetch images from all models
 export const Gallery: FunctionComponent = () => {
     const { name } = useParams();
-    const [gallery, setGallery] = useState<GalleryAsync>( {
-        displayName: "Halla",
-        description: "Nonfigurativ abstrusivitet fjerner oss fra vanlig tankegang og alminnelige forestillinger om hva noe skal være. Med sin unike vinkling løfter den oss ut fra vår sansbare verden og inn i mysteriets vakuum.",
-        images: [...mockImages, ...mockImages,]
-    });
+    const [gallery, setGallery] = useState<GalleryAsync>();
     const [displayImage, setDisplayImage] = useState<string>()
 
     useEffect(() => {

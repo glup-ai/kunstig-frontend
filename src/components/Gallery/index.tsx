@@ -1,8 +1,10 @@
 import {Dispatch, FunctionComponent, SetStateAction, useEffect, useState} from "react";
-import Header from "../Header";
+import Tilt from 'react-parallax-tilt';
+
 import './gallery.scss';
 import {useParams} from "react-router-dom";
 import {fetchImagePaths} from "../../utils/async";
+import { Header } from "../Header";
 import { GalleryAsync } from "../../utils/types";
 
 interface ImageProps {
@@ -34,10 +36,14 @@ interface DisplayImageProps {
 }
 
 const DisplayImage = ({ img, removeSetDisplay }: DisplayImageProps) =>  (
-    <div className="displayImage">
+    <Tilt
+        className="displayImage"
+        tiltMaxAngleX={2}
+        tiltMaxAngleY={2}
+    >
         <button onClick={() => removeSetDisplay("")}>X</button>
         <img src={img} alt="Larger view of chosen art-piece"/>
-    </div>
+    </Tilt>
 )
 
 // TODO: no name from url should fetch images from all models

@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import './index.css';
-import Header from "../Header";
+import { Header } from "../Header";
 
 export const AboutUs: FunctionComponent = () => {
   return (

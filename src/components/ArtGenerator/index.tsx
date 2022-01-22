@@ -6,7 +6,7 @@ import { saveAs } from 'file-saver';
 
 import './artgenerator.scss';
 import { getBaseUrl } from '../../utils/utils.js';
-import Header from "../Header";
+import { Header } from "../Header";
 import { useParams } from "react-router-dom";
 
 export const ArtGenerator: FunctionComponent = () => {

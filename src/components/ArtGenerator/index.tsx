@@ -70,14 +70,14 @@ export const ArtGenerator: FunctionComponent = () => {
             className="actionButtonContainer"
             onClick={() => fetchImage()}
           >
-            <p>Generate new image</p>
+            <p>Generer ny kunst</p>
           </button>
 
           <button
             className="actionButtonContainer"
             onClick={() => downloadImage(image)}
           >
-            <p>Download image</p>
+            <p>Last ned bildet</p>
           </button>
         </div>
       </section>

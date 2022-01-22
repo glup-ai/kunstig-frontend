@@ -62,7 +62,7 @@ export const ArtGenerator: FunctionComponent = () => {
     fetchImageInitially();
   }, []);
 
-  const downlaodImage = (img) => {
+  const downloadImage = (img) => {
     if (img) {
       saveAs(img, 'image.jpg');
     }
@@ -104,7 +104,7 @@ export const ArtGenerator: FunctionComponent = () => {
           <div className="dowloadButtonContainer">
             <button
                 className="artgeneratorButtonContainer"
-                onClick={() => downlaodImage(images[currIndex])}
+                onClick={() => downloadImage(images[currIndex])}
             >
               <Download />
             </button>

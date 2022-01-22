@@ -6,7 +6,7 @@ import { saveAs } from 'file-saver';
 
 import Download from '../Download/Download.js';
 import ArrowButton from '../Arrow/ArrowButton';
-import './artgenerator.css';
+import './artgenerator.scss';
 import { getBaseUrl } from '../../utils/utils.js';
 import Header from "../Header";
 

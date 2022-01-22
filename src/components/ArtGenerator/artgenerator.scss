@@ -1,3 +1,5 @@
+@import '../../utils/variables.scss';
+
 .artgeneratorContainer {
     width: 100%; 
     padding-left: 50px;
@@ -24,9 +26,12 @@
 }
 
 .artgeneratorButtonContainer {
-    width: 50%;
+    width: fit-content;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
+    border: none;
 }
 
 .galleryButton { 

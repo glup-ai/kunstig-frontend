@@ -101,7 +101,7 @@ export const ArtGenerator: FunctionComponent = () => {
                 disabled={isLoading}
             />
           </div>
-          <div className="dowloadButtonContainer">
+          <div className="downloadButtonContainer">
             <button
                 className="artgeneratorButtonContainer"
                 onClick={() => downloadImage(images[currIndex])}

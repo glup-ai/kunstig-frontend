@@ -51,7 +51,7 @@ export const ArtGenerator: FunctionComponent = () => {
       <Header />
       <section className="artgeneratorContainer">
         <div className="artgeneratorImageContainer">
-          <div className="imageContainer">
+          <div className="artgeneratorImage">
             {isLoading ? (
               <Loader
                 type="Rings"

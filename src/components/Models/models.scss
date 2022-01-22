@@ -14,7 +14,7 @@
 
 
   display: flex;
-  justify-content: center; // TODO: should be changed when we add more models
+  justify-content: flex-start;
   align-items: center;
 
   overflow-x: scroll;
@@ -32,12 +32,13 @@
   display: flex;
   align-items: center;
 
-  max-width: 600px;
   height: 75px;
+  max-width: 400px;
+  min-width: 200px;
   padding: 24px;
   margin-left: 20px;
 
-  font-size: 32px;
+  font-size: 24px;
   font-family: 'Press Start 2P', cursive;
 
   background-color: $model-background-color;
@@ -58,9 +59,9 @@
         display: block;
         top: 87px;
         left: 24px;
-        width: -webkit-calc(100% - 48px);
+        width: 80%;
         height: 3px;
-        background: yellow;
+        background: $secondary-color;
         z-index: 1;
         transform-origin: left;
         transform: scaleX(0);
@@ -73,6 +74,9 @@
 .modelLink {
   color: $primary-color;
   text-decoration: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
 }
 
 .modelLinkLine {

@@ -11,10 +11,8 @@ interface ModelProps {
 const ModelLink: FunctionComponent<ModelProps> = ({displayName, name}) => {
     return (
     <div className="modelContainer">
-        <div>
             <Link className="modelLink" to={`/galleri/${name}`}>{displayName}</Link>
             <div className="modelLinkLine"/>
-        </div>
     </div>
 )}
 

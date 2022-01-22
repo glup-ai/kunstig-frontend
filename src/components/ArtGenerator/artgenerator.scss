@@ -26,29 +26,26 @@
 }
 
 .actionButtonContainer {
-    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $primary-color;
+    background-color: $model-background-color;
+    border: none;
     margin: 0px 10px;
     width: 200px;
-}
-
-.galleryButton { 
-    color: blue;
-    font-weight: 900;
-    background: none;
-    outline: none;
-    border: none;
-	cursor: pointer;
     transition: transform 0.2s ease;
-    transform: scale(1);
-    font-family: inherit;
-}
 
-.galleryButton:hover {
-    transform: scale(1.1);
+    p {
+        font-size: 16px;
+        font-family: 'Press Start 2P', cursive;
+        color: $primary-color;
+    }
+    &:hover {
+        transform: scale(1.1);
+        p {
+            color: $secondary-color;
+        }
+    }
 }
 
 .artgeneratorImage {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './header.scss'
 
-const Header = () => (
+export const Header = () => (
     <nav className="headerContainer">
         <Link className="headerTitle" to="/">Kunstig</Link>
         <Link className="headerLink" to="/om">Om oss</Link>
@@ -10,5 +10,3 @@ const Header = () => (
 
     </nav>
 );
-
-export default Header;

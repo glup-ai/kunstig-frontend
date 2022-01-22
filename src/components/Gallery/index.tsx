@@ -3,6 +3,7 @@ import Header from "../Header";
 import './gallery.scss';
 import {useParams} from "react-router-dom";
 import {fetchImagePaths} from "../../utils/async";
+import { Header } from "../Header";
 import { GalleryAsync } from "../../utils/types";
 
 interface ImageProps {

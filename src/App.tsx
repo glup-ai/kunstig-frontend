@@ -1,4 +1,4 @@
-import Header from './components/Header';
+import { Header } from './components/Header';
 import './App.scss';
 import { Models } from './components/Models';
 import { FunctionComponent } from 'react';

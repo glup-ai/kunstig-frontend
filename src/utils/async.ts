@@ -11,7 +11,7 @@ export async function fetchImagePaths(model: string) {
        {
           method: 'POST',
           headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify({ "model": "portrait"})
+          body: JSON.stringify({ "model": model})
        }
    ).then(response => response.json())
 }

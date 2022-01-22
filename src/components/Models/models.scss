@@ -1,63 +1,70 @@
 @import '../../utils/variables.scss';
 
 .modelsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  height: 90%;
-
+    height: 90%;
 }
 .modelLinksContainer {
-  height: 60%;
-  width: 80%;
+    height: 60%;
+    width: 80%;
 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space:nowrap;
-
-  -ms-overflow-style: none;  // IE and Edge
-  scrollbar-width: none;  // Firefox
-
-
+    -ms-overflow-style: none; // IE and Edge
+    scrollbar-width: none; // Firefox
 }
-.modelLinksContainer::-webkit-scrollbar { display: none;}
+.modelLinksContainer::-webkit-scrollbar {
+    display: none;
+}
 
 .modelContainer {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 
-  height: 75px;
-  max-width: 400px;
-  min-width: 200px;
-  padding: 24px;
-  margin-left: 20px;
+    height: 123px;
+    max-width: 400px;
+    min-width: 200px;
+    margin-left: 20px;
 
-  font-size: 24px;
-  font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    font-family: 'Press Start 2P', cursive;
 
-  background-color: $model-background-color;
-  transform: scale(1);
-  transition: transform 0.2s ease;
+    background-color: $model-background-color;
+    transform: scale(1);
+    transition: transform 0.2s ease;
 
-  &:hover{
-    transform: scale(1.1);
+    &:hover {
+        transform: scale(1.1);
 
-    .modelLink{
-      color: $secondary-color;
+        .modelLink {
+            color: $secondary-color;
+        }
     }
+}
 
-    .modelLinkLine {
-      &:after{
+.modelLink {
+    color: $primary-color;
+    text-decoration: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 24px 24px 24px 24px;
+}
+
+.modelLink:hover {
+    &:after {
         content: '';
         position: absolute;
         display: block;
-        top: 87px;
+        bottom: 25px;
         left: 24px;
         width: 80%;
         height: 3px;
@@ -66,44 +73,21 @@
         transform-origin: left;
         transform: scaleX(0);
         animation: animateLinkLine 0.5s forwards;
-      }
     }
-  }
-}
-
-.modelLink {
-  color: $primary-color;
-  text-decoration: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-
-}
-
-.modelLinkLine {
-  &:before {
-    content: '';
-    position: fixed;
-    right: 0;
-    bottom: 10px;
-    z-index: 1;
-  }
 }
 
 @keyframes animateLinkLine {
-  0% {
-    transform: translateX(0) scaleX(0);
-    transform-origin: left;
-    left: 24px;
-    right: auto;
-  }
+    0% {
+        transform: translateX(0) scaleX(0);
+        transform-origin: left;
+        left: 24px;
+        right: auto;
+    }
 
-  100% {
-    transform: translateX(0) scaleX(1);
-    transform-origin: left;
-    left: 24px;
-    right: auto;
-  }
+    100% {
+        transform: translateX(0) scaleX(1);
+        transform-origin: left;
+        left: 24px;
+        right: auto;
+    }
 }
-
-
-

@@ -62,9 +62,11 @@ export const Gallery: FunctionComponent = () => {
             <section className="galleryContainer">
                 {displayImage && <DisplayImage img={displayImage} removeSetDisplay={setDisplayImage}/>}
                 <div className="imagesContainer">
-                    <div className="galleryDescription">
-                        {gallery?.description}
-                    </div>
+                    {gallery?.description &&
+                        <div className="galleryDescription">
+                            {gallery?.description}
+                        </div>
+                    }
                     {gallery?.images?.map((img, index) =>
                         <Image
                                 key={index}

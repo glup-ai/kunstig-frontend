@@ -9,18 +9,22 @@ import ArrowButton from '../Arrow/ArrowButton';
 import './artgenerator.css';
 import { getBaseUrl } from '../../utils/utils.js';
 import Header from "../Header";
+import {useParams} from "react-router-dom";
 
 export const ArtGenerator: FunctionComponent = () => {
   const [images, setImages] = useState([]);
   const [currIndex, setCurrIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { name } = useParams();
+  const model = name ?? "absintePortretter";
+
   const fetchImage = () => {
     setIsLoading(true);
     fetch(getBaseUrl() + 'generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify({ "model": "portrait"})
+      body: JSON.stringify({ "model": model})
     })
       .then((response) => {
         if (!response.ok) {
@@ -43,7 +47,7 @@ export const ArtGenerator: FunctionComponent = () => {
       fetch(getBaseUrl() + 'generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ "model": "portrait"})
+        body: JSON.stringify({ "model": model})
       })
         .then((response) => {
           if (!response.ok) {

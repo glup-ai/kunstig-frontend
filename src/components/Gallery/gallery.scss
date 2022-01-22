@@ -7,13 +7,20 @@
 
 .displayImage {
   position: fixed;
-  top: calc(50% - 512px + 75px); // center = half the screen - half the image + half the header
-  left: calc(50% - 512px);
-  width: 1024px;
-  height: 1024px;
-  background-color: red;
+  top: calc(50% - 45vh); // center = half the screen - half the image + half the header
+  left: calc(50% - 45vh);
+  width: 90vh;
+  height: 90vh;
+  object-fit: cover;
+
   animation: animateDisplayImage 1s forwards;
   border: 1px solid $secondary-color;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   > button {
     width: 60px;

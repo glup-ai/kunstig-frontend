@@ -64,7 +64,7 @@ export const ArtGenerator: FunctionComponent = () => {
         });
     };
     fetchImageInitially();
-  }, []);
+  }, [model]);
 
   const downloadImage = (img) => {
     if (img) {

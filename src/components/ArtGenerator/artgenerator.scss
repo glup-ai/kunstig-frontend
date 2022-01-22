@@ -51,7 +51,7 @@
     transform: scale(1.1);
 }
 
-.imageContainer {
+.artgeneratorImage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,8 @@
     margin: 50px auto;
 }
 
-.imageContainer img {
-    max-width: 100%; 
-    height: auto;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }

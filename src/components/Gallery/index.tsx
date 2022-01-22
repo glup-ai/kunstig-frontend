@@ -4,21 +4,21 @@ import './gallery.scss';
 import {useParams} from "react-router-dom";
 import {fetchImagePaths} from "../../utils/async";
 import { GalleryAsync } from "../../utils/types";
-import {mockImages} from "../../utils/utils";
 
 interface ImageProps {
     img: string;
     name: string;
     setDisplayImage: Dispatch<SetStateAction<string>>;
+    index: number;
 }
-const Image = ({img, name, setDisplayImage}: ImageProps) => {
+const Image = ({img, name, setDisplayImage, index}: ImageProps) => {
     const [isClicked, setIsClicked] = useState(false)
     const handleOnClick = () => {
         setDisplayImage(!isClicked ? img : "")
         setIsClicked(!isClicked)
     }
     return (
-        <div onClick={handleOnClick}>
+        <div onClick={handleOnClick} className={`galleryItem galleryItem__${index}`}>
             <img
                 className="imageContainer"
                 src={img}
@@ -40,8 +40,6 @@ const DisplayImage = ({ img, removeSetDisplay }: DisplayImageProps) =>  (
     </div>
 )
 
-
-
 // TODO: no name from url should fetch images from all models
 export const Gallery: FunctionComponent = () => {
     const { name } = useParams();
@@ -50,8 +48,7 @@ export const Gallery: FunctionComponent = () => {
 
     useEffect(() => {
         fetchImagePaths(name)
-            //.then(response => setGallery(response)) // TODO: local development
-            .then(res => setGallery({displayName: "Halla", images: [...mockImages, ...mockImages,]}))
+            .then(response => setGallery(response))
     }, [name])
     return (
         <>
@@ -59,12 +56,16 @@ export const Gallery: FunctionComponent = () => {
             <section className="galleryContainer">
                 {displayImage && <DisplayImage img={displayImage} removeSetDisplay={setDisplayImage}/>}
                 <div className="imagesContainer">
+                    <div className="galleryDescription">
+                        {gallery?.description}
+                    </div>
                     {gallery?.images?.map((img, index) =>
                         <Image
-                            key={index}
-                            img={img}
-                            name={name}
-                            setDisplayImage={setDisplayImage}
+                                key={index}
+                                index={index}
+                                img={img}
+                                name={name}
+                                setDisplayImage={setDisplayImage}
                         />
                     )}
                 </div>

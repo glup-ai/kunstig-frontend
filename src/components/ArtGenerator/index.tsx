@@ -10,7 +10,7 @@ import { Header } from "../Header";
 import { useParams } from "react-router-dom";
 
 export const ArtGenerator: FunctionComponent = () => {
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState<string>();
   const [isLoading, setIsLoading] = useState(true);
 
   const { name } = useParams();

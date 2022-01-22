@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import {FunctionComponent, useCallback, useEffect, useState} from 'react';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Loader from 'react-loader-spinner';
 
@@ -10,13 +10,13 @@ import Header from "../Header";
 import { useParams } from "react-router-dom";
 
 export const ArtGenerator: FunctionComponent = () => {
-  let [image, setImage] = useState('');
+  const [image, setImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   const { name } = useParams();
   const model = name ?? "absintePortretter";
 
-  const fetchImage = () => {
+  const fetchImage = useCallback(() => {
     setIsLoading(true);
     fetch(getBaseUrl() + 'generate', {
       method: 'POST',
@@ -34,12 +34,11 @@ export const ArtGenerator: FunctionComponent = () => {
         setImage(URL.createObjectURL(blob));
         setIsLoading(false);
       });
-  };
+  }, [model]);
 
   useEffect(() => {
     fetchImage();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchImage]);
 
   const downloadImage = (img) => {
     if (img) {

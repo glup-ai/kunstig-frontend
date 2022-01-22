@@ -86,7 +86,7 @@ export const ArtGenerator: FunctionComponent = () => {
                 rotation="left"
                 disabled={isLoading}
             />
-            <div className="imageContainer">
+            <div className="artgeneratorImage">
               {isLoading ? (
                   <Loader
                       type="Rings"

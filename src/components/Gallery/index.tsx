@@ -41,7 +41,7 @@ const DisplayImage = ({ img, removeSetDisplay }: DisplayImageProps) =>  (
         tiltMaxAngleX={2}
         tiltMaxAngleY={2}
     >
-        <button onClick={() => removeSetDisplay("")}>X</button>
+        <button onClick={() => removeSetDisplay(undefined)}>X</button>
         <img src={img} alt="Larger view of chosen art-piece"/>
     </Tilt>
 )
@@ -56,11 +56,15 @@ export const Gallery: FunctionComponent = () => {
         fetchImagePaths(name)
             .then(response => setGallery(response))
     }, [name])
+
+    console.log(displayImage)
     return (
         <>
             <Header/>
             <section className="galleryContainer">
-                {displayImage && <DisplayImage img={displayImage} removeSetDisplay={setDisplayImage}/>}
+                <div className={displayImage ? "overlay" : "" }>
+                    {displayImage && <DisplayImage img={displayImage} removeSetDisplay={setDisplayImage}/>}
+                </div>
                 <div className="imagesContainer">
                     {gallery?.description &&
                         <div className="galleryDescription">

@@ -5,6 +5,15 @@
   justify-content: center;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(69,69,69,0.5);
+}
+
 .displayImage {
   position: fixed;
   top: calc(50% - 45vh); // center = half the screen - half the image + half the header
@@ -13,7 +22,7 @@
   height: 90vh;
   object-fit: cover;
 
-  animation: animateDisplayImage 1s forwards;
+  animation: animateDisplayImage 0.5s forwards;
   border: 1px solid $secondary-color;
 
   img {

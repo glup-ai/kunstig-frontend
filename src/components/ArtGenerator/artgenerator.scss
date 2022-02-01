@@ -11,60 +11,29 @@
     align-items: center;
 }
 
-.artgeneratorDropdownBase {
-  .Dropdown-control {
-      background-color: $primary-color;
-      color: $secondary-color;
-      border: none;
-
-      position: relative;
-      overflow: hidden;
-      border-radius: 2px;
-      box-sizing: border-box;
-      cursor: default;
-      outline: none;
-      padding: 8px 52px 8px 10px;
-      transition: all 200ms ease;
-  }
-
-  .Dropdown-arrow {
-      border-color: #999 transparent transparent;
-      border-style: solid;
-      border-width: 5px 5px 0;
-      content: ' ';
-      display: block;
-      height: 0;
-      margin-top: ceil(2.5); // TODO
-      position: absolute;
-      right: 10px;
-      top: 14px;
-      width: 0;
-  }
-}
-
 .artgeneratorDropdownContainer {
     margin-top: 50px;
-    width: 250px;
+    width: 512px;
 }
 
 .artgeneratorDropdown {
     border: 3px solid $tertiery-color;
-    color: $secondary-color;
+    width: 100%;
 }
 
 .artgeneratorDropdownControl {
     background-color: $primary-color;
-    color: $secondary-color;
+    color: $tertiery-color;
+    font-weight: bolder;
     border: none;
 }
 
 .artgeneratorDropdownMenu {
-    background-color: $primary-color;
-    color: $secondary-color;
+    background-color: $tertiery-color;
 }
 
 .artgeneratorDropdownArrow {
-    background-color: $tertiery-color;
+    border-color: $tertiery-color transparent transparent;
 }
 
 .artgeneratorImageContainer {

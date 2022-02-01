@@ -38,7 +38,7 @@ export const ArtGenerator: FunctionComponent = () => {
       .then((response) => response.blob())
       .then((blob) => {
         setImage(URL.createObjectURL(blob));
-        setIsLoading(true);
+        setIsLoading(false);
       });
   }, [model]);
 
@@ -68,6 +68,7 @@ export const ArtGenerator: FunctionComponent = () => {
               className="artgeneratorDropdown"
               controlClassName="artgeneratorDropdownControl"
               menuClassName="artgeneratorDropdownMenu"
+              arrowClassName="artgeneratorDropdownArrow"
               options={modelOptions}
               onChange={event => selectModel(event.value)}
               value={defaultModelOption}

@@ -65,6 +65,9 @@ export const ArtGenerator: FunctionComponent = () => {
       <section className="artgeneratorContainer">
         <div className="artgeneratorDropdownContainer">
             <Dropdown
+              className="artgeneratorDropdown"
+              controlClassName="artgeneratorDropdownControl"
+              menuClassName="artgeneratorDropdownMenu"
               options={modelOptions}
               onChange={event => selectModel(event.value)}
               value={defaultModelOption}

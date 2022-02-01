@@ -95,8 +95,9 @@
   font-size: 18px;
   display: block;
   margin-top: 3rem;
-  transition: color, background-color, letter-spacing 0.2s ease;
+  transition: color, background-color, letter-spacing 0.4s ease;
   letter-spacing: normal;
+  padding: 0 5px;
   &:hover {
     color: $secondary-color;
     background-color: $primary-color;

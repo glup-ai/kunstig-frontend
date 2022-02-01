@@ -1,6 +1,8 @@
 import {FunctionComponent, useCallback, useEffect, useState} from 'react';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Loader from 'react-loader-spinner';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 import { saveAs } from 'file-saver';
 
@@ -15,6 +17,9 @@ export const ArtGenerator: FunctionComponent = () => {
 
   const { name } = useParams();
   const model = name ?? "absintePortretter";
+
+  const modelOptions = ["model 1", "model 2", "model 3"]
+  const defaultModelOption = modelOptions[0];
 
   const fetchImage = useCallback(() => {
     setIsLoading(true);
@@ -46,10 +51,25 @@ export const ArtGenerator: FunctionComponent = () => {
     }
   };
 
+  const selectModel = (modelName: string) => {
+    if (modelName) {
+      // TODO - Update current model
+      console.log("New model is " + modelName);
+    }
+  }
+
   return (
     <>
       <Header />
       <section className="artgeneratorContainer">
+        <div className="artgeneratorDropdownContainer">
+            <Dropdown
+              options={modelOptions}
+              onChange={event => selectModel(event.value)}
+              value={defaultModelOption}
+              placeholder="Select an option" 
+            />
+        </div>
         <div className="artgeneratorImageContainer">
           <div className="artgeneratorImage">
             {isLoading ? (

@@ -78,7 +78,6 @@
   background-color: $secondary-color;
   color: $primary-color;
   padding: 25px;
-  width: 250px;
 
   grid-column-start: 1;
   grid-column-end: 3;
@@ -103,6 +102,16 @@
     background-color: $primary-color;
     letter-spacing: 2px;
   }
+}
+
+
+.galleryItem {
+  box-shadow: none;
+  transition: box-shadow 0.2s ease;
+  &:hover {
+    box-shadow: 0 2px 31px 4px $secondary-color;
+  }
+
 }
 
 .galleryItem__0 {

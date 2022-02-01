@@ -2,7 +2,7 @@ import {Dispatch, FunctionComponent, SetStateAction, useEffect, useState} from "
 import Tilt from 'react-parallax-tilt';
 
 import './gallery.scss';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {fetchImagePaths} from "../../utils/async";
 import { Header } from "../Header";
 import { GalleryAsync } from "../../utils/types";
@@ -46,6 +46,23 @@ const DisplayImage = ({ img, removeSetDisplay }: DisplayImageProps) =>  (
     </Tilt>
 )
 
+interface GenerateArtButtonProps {
+    description?: string;
+    name: string;
+}
+
+const GenerateArtButton = ({ description, name }: GenerateArtButtonProps) => {
+    if (!description) {
+        return <></>
+    }
+    return (
+        <div className="galleryDescription">
+            {description}
+            <Link className="generateArtLink" to={`/generer/${name}`}>
+                Lag din egen kunst
+            </Link>
+        </div>)
+}
 // TODO: no name from url should fetch images from all models
 export const Gallery: FunctionComponent = () => {
     const { name } = useParams();
@@ -57,7 +74,6 @@ export const Gallery: FunctionComponent = () => {
             .then(response => setGallery(response))
     }, [name])
 
-    console.log(displayImage)
     return (
         <>
             <Header/>
@@ -66,11 +82,7 @@ export const Gallery: FunctionComponent = () => {
                     {displayImage && <DisplayImage img={displayImage} removeSetDisplay={setDisplayImage}/>}
                 </div>
                 <div className="imagesContainer">
-                    {gallery?.description &&
-                        <div className="galleryDescription">
-                            {gallery?.description}
-                        </div>
-                    }
+                    <GenerateArtButton description={gallery?.description} name={name} />
                     {gallery?.images?.map((img, index) =>
                         <Image
                                 key={index}

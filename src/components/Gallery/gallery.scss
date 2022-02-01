@@ -77,7 +77,8 @@
 .galleryDescription {
   background-color: $secondary-color;
   color: $primary-color;
-  padding: 35px;
+  padding: 25px;
+  width: 250px;
 
   grid-column-start: 1;
   grid-column-end: 3;
@@ -85,6 +86,23 @@
   grid-row-end: 3;
   word-break: break-word;
 
+}
+
+.generateArtLink {
+  color: $primary-color;
+  background-color: $secondary-color;
+  width: fit-content;
+  text-decoration: underline;
+  font-size: 18px;
+  display: block;
+  margin-top: 3rem;
+  transition: color, background-color, letter-spacing 0.2s ease;
+  letter-spacing: normal;
+  &:hover {
+    color: $secondary-color;
+    background-color: $primary-color;
+    letter-spacing: 2px;
+  }
 }
 
 .galleryItem__0 {

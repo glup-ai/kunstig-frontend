@@ -1,10 +1,5 @@
 import {getBaseUrl} from "./utils";
 
-export async function fetchModels() {
-    return await fetch(getBaseUrl() + 'models')
-        .then(response => response.json())
-}
-
 export async function fetchImagePaths(model: string) {
     if (model) {
         return await fetch(

@@ -10,14 +10,13 @@ import './artgenerator.scss';
 import { getBaseUrl } from '../../utils/utils.js';
 import { Header } from "../Header";
 import { useParams } from "react-router-dom";
-import { KunstigContext } from '../../context/Context';
-
+import {ModelsAsyncContext} from "../../context/ModelAsync";
 export const ArtGenerator: FunctionComponent = () => {
   const { name } = useParams();
   const [image, setImage] = useState<string>();
   const [isLoading, setIsLoading] = useState(true);
   const [currentModel, setCurrentModel] = useState(name ?? "nonfigurativAbstrusivitet")
-  const {globalState} = useContext(KunstigContext);
+  const {modelsAsyncState} = useContext(ModelsAsyncContext);
 
   const fetchImage = useCallback(() => {
     setIsLoading(true);
@@ -49,19 +48,19 @@ export const ArtGenerator: FunctionComponent = () => {
     }
   };
 
-  const options = globalState.map(model => ({value: model.name, label: model.displayName}))
+  const options = modelsAsyncState.data?.map(model => ({value: model.name, label: model.displayName}))
 
   return (
     <>
       <Header />
       <section className="artgeneratorContainer">
         <div className="artgeneratorDropdownContainer">
-            <Dropdown
+          {options && <Dropdown
               options={options}
               onChange={event => setCurrentModel(event.value)}
-              value={options[0]}
-              placeholder="Select an option" 
-            />
+              value={currentModel}
+              placeholder="Velg en AI-kunstner"
+          />}
         </div>
         <div className="artgeneratorImageContainer">
           <div className="artgeneratorImage">

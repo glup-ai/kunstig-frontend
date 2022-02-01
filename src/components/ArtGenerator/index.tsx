@@ -1,4 +1,4 @@
-import {FunctionComponent, useCallback, useEffect, useState} from 'react';
+import {FunctionComponent, useCallback, useContext, useEffect, useState} from 'react';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Loader from 'react-loader-spinner';
 import Dropdown from 'react-dropdown';
@@ -10,23 +10,21 @@ import './artgenerator.scss';
 import { getBaseUrl } from '../../utils/utils.js';
 import { Header } from "../Header";
 import { useParams } from "react-router-dom";
+import { KunstigContext } from '../../context/Context';
 
 export const ArtGenerator: FunctionComponent = () => {
+  const { name } = useParams();
   const [image, setImage] = useState<string>();
   const [isLoading, setIsLoading] = useState(true);
-
-  const { name } = useParams();
-  const model = name ?? "absintePortretter";
-
-  const modelOptions = ["model 1", "model 2", "model 3"]
-  const defaultModelOption = modelOptions[0];
+  const [currentModel, setCurrentModel] = useState(name ?? "nonfigurativAbstrusivitet")
+  const {globalState} = useContext(KunstigContext);
 
   const fetchImage = useCallback(() => {
     setIsLoading(true);
     fetch(getBaseUrl() + 'generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ "model": model })
+      body: JSON.stringify({ "model": currentModel })
     })
       .then((response) => {
         if (!response.ok) {
@@ -39,7 +37,7 @@ export const ArtGenerator: FunctionComponent = () => {
         setImage(URL.createObjectURL(blob));
         setIsLoading(false);
       });
-  }, [model]);
+  }, [currentModel]);
 
   useEffect(() => {
     fetchImage();
@@ -51,12 +49,7 @@ export const ArtGenerator: FunctionComponent = () => {
     }
   };
 
-  const selectModel = (modelName: string) => {
-    if (modelName) {
-      // TODO - Update current model
-      console.log("New model is " + modelName);
-    }
-  }
+  const options = globalState.map(model => ({value: model.name, label: model.displayName}))
 
   return (
     <>
@@ -64,9 +57,9 @@ export const ArtGenerator: FunctionComponent = () => {
       <section className="artgeneratorContainer">
         <div className="artgeneratorDropdownContainer">
             <Dropdown
-              options={modelOptions}
-              onChange={event => selectModel(event.value)}
-              value={defaultModelOption}
+              options={options}
+              onChange={event => setCurrentModel(event.value)}
+              value={options[0]}
               placeholder="Select an option" 
             />
         </div>

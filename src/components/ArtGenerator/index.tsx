@@ -1,4 +1,4 @@
-import {FunctionComponent, useCallback, useEffect, useState} from 'react';
+import {FunctionComponent, useCallback, useContext, useEffect, useState} from 'react';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -9,25 +9,22 @@ import './artgenerator.scss';
 import { getBaseUrl } from '../../utils/utils.js';
 import { Header } from "../Header";
 import { useParams } from "react-router-dom";
+import {ModelsAsyncContext} from "../../context/ModelAsync";
 import {Spinner} from "../Spinner/Spinner";
 
-
 export const ArtGenerator: FunctionComponent = () => {
+  const { name } = useParams();
   const [image, setImage] = useState<string>();
   const [isLoading, setIsLoading] = useState(true);
-
-  const { name } = useParams();
-  const model = name ?? "absintePortretter";
-
-  const modelOptions = ["model 1", "model 2", "model 3"]
-  const defaultModelOption = modelOptions[0];
+  const [currentModel, setCurrentModel] = useState(name ?? "nonfigurativAbstrusivitet")
+  const {modelsAsyncState} = useContext(ModelsAsyncContext);
 
   const fetchImage = useCallback(() => {
     setIsLoading(true);
     fetch(getBaseUrl() + 'generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ "model": model })
+      body: JSON.stringify({ "model": currentModel })
     })
       .then((response) => {
         if (!response.ok) {
@@ -40,7 +37,7 @@ export const ArtGenerator: FunctionComponent = () => {
         setImage(URL.createObjectURL(blob));
         setIsLoading(false);
       });
-  }, [model]);
+  }, [currentModel]);
 
   useEffect(() => {
     fetchImage();
@@ -52,28 +49,23 @@ export const ArtGenerator: FunctionComponent = () => {
     }
   };
 
-  const selectModel = (modelName: string) => {
-    if (modelName) {
-      // TODO - Update current model
-      console.log("New model is " + modelName);
-    }
-  }
+  const options = modelsAsyncState.data?.map(model => ({value: model.name, label: model.displayName}))
 
   return (
     <>
       <Header />
       <section className="artgeneratorContainer">
         <div className="artgeneratorDropdownContainer">
-            <Dropdown
+          {options && <Dropdown
+              options={options}
+              onChange={event => setCurrentModel(event.value)}
+              value={currentModel}
+              placeholder="Velg en AI-kunstner"
               className="artgeneratorDropdown"
               controlClassName="artgeneratorDropdownControl"
               menuClassName="artgeneratorDropdownMenu"
               arrowClassName="artgeneratorDropdownArrow"
-              options={modelOptions}
-              onChange={event => selectModel(event.value)}
-              value={defaultModelOption}
-              placeholder="Select an option" 
-            />
+          />}
         </div>
         <div className="artgeneratorImageContainer">
           <div className="artgeneratorImage">

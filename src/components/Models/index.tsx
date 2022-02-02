@@ -1,8 +1,7 @@
-import {FunctionComponent, useEffect, useState} from "react";
-import {fetchModels} from "../../utils/async";
-import {Model} from "../../utils/types";
+import {FunctionComponent, useContext} from "react";
 import './models.scss'
 import {Link} from "react-router-dom";
+import { ModelsAsyncContext } from "../../context/ModelAsync";
 
 interface ModelProps {
     displayName: string;
@@ -18,17 +17,16 @@ const ModelLink: FunctionComponent<ModelProps> = ({displayName, name}) => {
 
 
 export const Models: FunctionComponent = () => {
+    const {modelsAsyncState} = useContext(ModelsAsyncContext);
 
-    const [models, setModels] = useState<Model[]>([])
-    useEffect(() => {
-        fetchModels()
-            .then(response => setModels(response.models))
-    }, [])
+    if(modelsAsyncState.error) {
+        return <h1>TODO: bedre feilhåndtering</h1>
+    }
 
     return (
         <section className="modelsContainer">
             <div className="modelLinksContainer">
-            {models.map((model, index) =>
+            {modelsAsyncState.data?.map((model, index) =>
                 <ModelLink displayName={model.displayName} name={model.name} key={index}/>
             )}
             </div>

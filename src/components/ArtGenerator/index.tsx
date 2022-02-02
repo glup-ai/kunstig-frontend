@@ -1,6 +1,5 @@
 import {FunctionComponent, useCallback, useContext, useEffect, useState} from 'react';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import Loader from 'react-loader-spinner';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
@@ -11,6 +10,8 @@ import { getBaseUrl } from '../../utils/utils.js';
 import { Header } from "../Header";
 import { useParams } from "react-router-dom";
 import {ModelsAsyncContext} from "../../context/ModelAsync";
+import {Spinner} from "../Spinner/Spinner";
+
 export const ArtGenerator: FunctionComponent = () => {
   const { name } = useParams();
   const [image, setImage] = useState<string>();
@@ -60,18 +61,16 @@ export const ArtGenerator: FunctionComponent = () => {
               onChange={event => setCurrentModel(event.value)}
               value={currentModel}
               placeholder="Velg en AI-kunstner"
+              className="artgeneratorDropdown"
+              controlClassName="artgeneratorDropdownControl"
+              menuClassName="artgeneratorDropdownMenu"
+              arrowClassName="artgeneratorDropdownArrow"
           />}
         </div>
         <div className="artgeneratorImageContainer">
           <div className="artgeneratorImage">
             {isLoading ? (
-              <Loader
-                type="Rings"
-                color="#00BFFF"
-                height={100}
-                width={100}
-                visible={isLoading}
-              />
+              <Spinner/>
             ) : (
               <img alt="AI-generated art by kunstig" src={image} />
             )}

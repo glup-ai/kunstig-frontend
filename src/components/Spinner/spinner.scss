@@ -1,0 +1,40 @@
+@import "../../utils/variables";
+
+.sitting-girl--container {
+    width: 470px;
+    height: 590px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.sitting-girl {
+    stroke-dasharray: 47500;
+    stroke: $secondary-color;
+    stroke-width: 9px;
+    fill: none;
+    stroke-dashoffset: 50000;
+    animation: dash 5s ease-in infinite alternate;
+}
+
+.spinnerText {
+    animation: spinnerText 2s ease infinite alternate;
+    opacity: 0;
+}
+@keyframes spinnerText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+
+    }
+}
+
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

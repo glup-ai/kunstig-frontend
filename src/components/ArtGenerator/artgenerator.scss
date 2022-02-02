@@ -1,7 +1,7 @@
 @import '../../utils/variables.scss';
 
 .artgeneratorContainer {
-    width: 100%; 
+    width: 100%;
     padding-left: 50px;
     padding-right: 50px;
     height: fit-content;
@@ -13,7 +13,27 @@
 
 .artgeneratorDropdownContainer {
     margin-top: 50px;
-    width: 250px;
+    width: 512px;
+}
+
+.artgeneratorDropdown {
+    border: 3px solid $tertiery-color;
+    width: 100%;
+}
+
+.artgeneratorDropdownControl {
+    background-color: $primary-color;
+    color: $tertiery-color;
+    font-weight: bolder;
+    border: none;
+}
+
+.artgeneratorDropdownMenu {
+    background-color: $tertiery-color;
+}
+
+.artgeneratorDropdownArrow {
+    border-color: $tertiery-color transparent transparent;
 }
 
 .artgeneratorImageContainer {
@@ -57,11 +77,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 512px; 
+    max-width: 512px;
     height: 512px;
     margin: 50px auto;
     img {
-        max-width: 100%; 
+        max-width: 100%;
         height: auto;
     }
 }

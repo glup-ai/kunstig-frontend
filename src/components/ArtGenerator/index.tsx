@@ -1,5 +1,4 @@
 import {FunctionComponent, useCallback, useContext, useEffect, useState} from 'react';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 

@@ -33,6 +33,7 @@
 
 .headerLinkContainer {
     @media screen and (min-width: $breakpoint-mobile) {
+        height: 96%;
         display: flex;
     }
 
@@ -51,7 +52,7 @@
     font-size: 24px;
 
     margin-right: 40px;
-    height: 96%;
+    height: 100%;
     &:hover {
         background-color: $primary-color;
         color: $secondary-color;

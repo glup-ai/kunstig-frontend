@@ -19,9 +19,15 @@
 
   @media screen and (min-width: $breakpoint-mobile) {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
 
+    @media screen and (min-width: $breakpoint-modelLinks) {
+      justify-content: center;
+    }
+
+    @media screen and (max-width: $breakpoint-modelLinks) {
+      justify-content: flex-start;
+    }
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;

@@ -1,12 +1,18 @@
 @import "../../utils/variables";
 
 .sitting-girl--container {
-    width: 470px;
-    height: 590px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+        margin-top: 100px;
+        width: 470px;
+        height: 590px;
+        align-items: center;
+    }
+    @media screen and (max-width: $breakpoint-mobile) {
+        justify-content: space-between;
+    }
 }
 
 .sitting-girl {

@@ -48,7 +48,7 @@ export const ArtGenerator: FunctionComponent = () => {
         }
     };
 
-    const options = modelsAsyncState.data?.map(model => ({value: model.name, label: model.displayName}))
+    const options = modelsAsyncState.data?.map(model => ({value: model.name, label: model.displayName})) ?? []
 
     return (
         <>

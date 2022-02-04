@@ -87,6 +87,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 370px;
 
     img {
         max-width: 100%;
@@ -98,6 +99,6 @@
         height: 512px;
     }
     @media screen and (max-width: $breakpoint-mobile) {
-
+        width: 100%;
     }
 }

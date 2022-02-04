@@ -1,24 +1,30 @@
 @import '../../utils/variables.scss';
 
 .artgeneratorContainer {
-    width: 100%;
-    padding-left: 50px;
-    padding-right: 50px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+        width: 512px;
+
+    }
+    @media screen and (max-width: $breakpoint-mobile) {
+        width: 90%;
+    }
 }
 
 .artgeneratorDropdownContainer {
-    margin-top: 50px;
-    width: 512px;
+    width: 100%;
+    @media screen and (min-width: $breakpoint-mobile) {
+        margin-top: 50px;
+    }
+    @media screen and (max-width: $breakpoint-mobile) {
+        margin-top: 15px;
+    }
 }
 
 .artgeneratorDropdown {
     border: 3px solid $tertiary-color;
-    width: 100%;
+    width: 99%;
 }
 
 .artgeneratorDropdownControl {
@@ -37,17 +43,22 @@
 }
 
 .artgeneratorImageContainer {
-    width: 100%;
-    max-width: 1100px;
     display: flex;
     justify-content: space-between;
+    width: 100%;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+    }
+    @media screen and (max-width: $breakpoint-mobile) {
+        margin: 15px 0;
+    }
 }
 
 .actionButtonsContainer{
     width: 100%;
     height: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .actionButtonContainer {
@@ -56,8 +67,7 @@
     align-items: center;
     background-color: $model-background-color;
     border: none;
-    margin: 0px 10px;
-    width: 200px;
+    width: 48%;
     transition: transform 0.2s ease;
 
     p {
@@ -77,11 +87,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 512px;
-    height: 512px;
-    margin: 50px auto;
+
     img {
         max-width: 100%;
         height: auto;
+    }
+    @media screen and (min-width: $breakpoint-mobile) {
+        margin: 50px auto;
+        max-width: 512px;
+        height: 512px;
+    }
+    @media screen and (max-width: $breakpoint-mobile) {
+
     }
 }

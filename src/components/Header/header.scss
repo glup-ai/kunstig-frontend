@@ -4,19 +4,42 @@
     display: flex;
     align-items: center;
 
-    height: $header-height;
-    width: 100%;
-
     background-color: $secondary-color;
     color: $primary-color;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+        height: $header-height;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+        height: $header-height-mobile;
+    }
 }
 
 .headerTitle {
-    margin-right: 25%;
     margin-left: 15px;
     text-decoration: none;
     color: $primary-color;
-    font-size: 48px;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+        margin-right: 25%;
+        font-size: 48px;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+        font-size: 1.5rem;
+    }
+}
+
+.headerLinkContainer {
+    @media screen and (min-width: $breakpoint-mobile) {
+        display: flex;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+        display: none;
+    }
+
 }
 
 .headerLink {

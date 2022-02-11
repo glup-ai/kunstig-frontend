@@ -2,7 +2,7 @@
 
 .pageNotFoundContainer {
   margin: 50px auto;
-  min-width: 400px;
+  min-width: 300px;
   max-width: 800px;
   position: relative;
   font-family: 'Press Start 2P', cursive;
@@ -59,19 +59,30 @@
   text-shadow: 0 0 10px #000a;
   transition: all 0.5s;
 
-  @for $i from 0 to 10 {
-    &:nth-child(#{$i + 1}) {
-      font-size: #{60 + $i * 10}px;
-      animation-delay: #{$i * -0.3}s;
-      opacity: #{0.1 + $i * 0.1};
-      transform:
-              translateX(calc(-48% - (var(--positionX) - 7) * #{(7 - $i) * 3px}))
-              translateY(calc(-50% - (var(--positionY) - 7) * #{(7 - $i) * 3px}))
-              rotateX(calc(0deg - (var(--positionY) - 7) * 5deg))
-              rotateY(calc((var(--positionX) - 7) * 5deg));
+  @media screen and (min-width: $breakpoint-mobile) {
+    @for $i from 0 to 10 {
+      &:nth-child(#{$i + 1}) {
+        font-size: #{60 + $i * 10}px;
+        animation-delay: #{$i * -0.3}s;
+        opacity: #{0.1 + $i * 0.1};
+        transform:
+                translateX(calc(-48% - (var(--positionX) - 7) * #{(7 - $i) * 3px}))
+                translateY(calc(-50% - (var(--positionY) - 7) * #{(7 - $i) * 3px}))
+                rotateX(calc(0deg - (var(--positionY) - 7) * 5deg))
+                rotateY(calc((var(--positionX) - 7) * 5deg));
+      }
     }
   }
-
+  @media screen and (max-width: $breakpoint-mobile) {
+    @for $i from 0 to 10 {
+      &:nth-child(#{$i + 1}) {
+        font-size: #{$i * 5}px;
+        animation-delay: #{$i * -0.3}s;
+        opacity: #{0.1 + $i * 0.1};
+        transform: translateX(calc(-48% - (var(--positionX) - 7) * #{(7 - $i) * 3px})) translateY(calc(-50% - (var(--positionY) - 7) * #{(7 - $i) * 3px})) rotateX(calc(0deg - (var(--positionY) - 7) * 5deg)) rotateY(calc((var(--positionX) - 7) * 5deg));
+      }
+    }
+  }
   @keyframes color {
     @for $c from 0 through 1 {
       #{$c * 10%} { color: hsl(240 * $c, 100%, 50%); }
@@ -85,8 +96,13 @@
   margin: auto;
   height: 0.71em;
   color: transparent;
-  font-size: 8rem;
   letter-spacing: -0.02em;
+  @media screen and (min-width: $breakpoint-mobile) {
+    font-size: 8rem;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 6rem;
+  }
 }
 
 .deconstructed > div {
@@ -100,6 +116,13 @@
   -webkit-text-fill-color: $tertiary-color;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: red;
+
+  @media screen and (min-width: $breakpoint-mobile) {
+    left: 55%;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    left: 20%;
+  }
 }
 
 .deconstructed > div:nth-child(1) {

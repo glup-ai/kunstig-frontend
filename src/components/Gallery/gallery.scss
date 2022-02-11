@@ -129,6 +129,9 @@
     box-shadow: 0 2px 31px 4px $secondary-color;
   }
 
+  @media screen and (max-width: $breakpoint-mobile) {
+    pointer-events: none;
+  }
 }
 
 .galleryItem__0 {

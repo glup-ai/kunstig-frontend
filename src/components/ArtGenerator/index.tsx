@@ -71,7 +71,7 @@ export const ArtGenerator: FunctionComponent = () => {
                         {isLoading ? (
                             <Spinner/>
                         ) : (
-                            <img alt="AI-generated art by kunstig" src={image}/>
+                            <img alt="Kunst generert av vår kunstig intelligente modell, Kunstig" src={image}/>
                         )}
                     </div>
                 </div>

@@ -42,7 +42,7 @@ const DisplayImage = ({ img, removeSetDisplay }: DisplayImageProps) =>  (
         tiltMaxAngleY={2}
     >
         <button onClick={() => removeSetDisplay(undefined)}>X</button>
-        <img src={img} alt="Larger view of chosen art-piece"/>
+        <img src={img} alt="Forstørret visning av kunstverket som ble trykket på"/>
     </Tilt>
 )
 

@@ -13,20 +13,24 @@ for(let i = 0; i < 50; i++) {
 }
 
 export const PageNotFound = () => {
-
+    // todo: https://codepen.io/finnhvman/pen/BGmygj
     return (
         <>
             <Header/>
             <section className="pageNotFoundContainer">
+                <div className="pageNotFoundTitleContainer">
                 {cells.map(cell => cell)}
                 <div className="content">
                     {titles.map(title => title)}
                 </div>
                 <img src={coolCat} alt={"En kul katt som plaster på såret at du ikke fant det du lette etter"}/>
-                <div>
-                    <p>4</p>
-                    <p>0</p>
-                    <p>4</p>
+                </div>
+                <div className="deconstructed">
+                    404
+                    <div>404</div>
+                    <div>404</div>
+                    <div>404</div>
+                    <div>404</div>
                 </div>
             </section>
         </>

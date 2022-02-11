@@ -1,14 +1,19 @@
 @import "../../utils/variables";
 
 .pageNotFoundContainer {
+  margin: 50px auto;
+  min-width: 400px;
+  max-width: 800px;
+  position: relative;
   font-family: 'Press Start 2P', cursive;
+}
+
+.pageNotFoundTitleContainer {
   color: $tertiary-color;
   position: relative;
   display: flex;
   flex-direction: column;
-  margin: 15px auto;
-  min-width: 400px;
-  max-width: 800px;
+
   div {
     display: flex;
     width: 100%;
@@ -18,13 +23,6 @@
 
     font-size: 4rem;
     letter-spacing: 15px;
-
-    :nth-child(1) {}
-    :nth-child(2) {
-
-    }
-    :nth-child(3) {}
-
   }
 }
 
@@ -78,5 +76,89 @@
     @for $c from 0 through 1 {
       #{$c * 10%} { color: hsl(240 * $c, 100%, 50%); }
     }
+  }
+}
+
+.deconstructed {
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  height: 0.71em;
+  color: transparent;
+  font-size: 8rem;
+  letter-spacing: -0.02em;
+}
+
+.deconstructed > div {
+  position: absolute;
+  width: 100%;
+  left: 55%;
+  bottom: 0;
+  pointer-events: none;
+
+  color: red;
+  -webkit-text-fill-color: $tertiary-color;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: red;
+}
+
+.deconstructed > div:nth-child(1) {
+  -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
+  mask-image: linear-gradient(black 25%, transparent 25%);
+  animation: deconstructed1 1.3s forwards;
+}
+
+.deconstructed > div:nth-child(2) {
+  -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+  mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+  animation: deconstructed2 1.3s forwards;
+}
+
+.deconstructed > div:nth-child(3) {
+  -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+  mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+  animation: deconstructed3 1.3s forwards;
+}
+
+.deconstructed > div:nth-child(4) {
+  -webkit-mask-image: linear-gradient(transparent 75%, black 75%);
+  mask-image: linear-gradient(transparent 75%, black 75%);
+  animation: deconstructed4 1.3s forwards;
+}
+
+@keyframes deconstructed1 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes deconstructed2 {
+  0% {
+    transform: translateX(100%);
+  }
+  94% {
+    transform: translateX(0.5%);
+  }
+
+}
+
+@keyframes deconstructed3 {
+  0% {
+    transform: translateX(100%);
+  }
+  88% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes deconstructed4 {
+  0% {
+    transform: translateX(100%);
+  }
+  82% {
+    transform: translateX(0%);
   }
 }

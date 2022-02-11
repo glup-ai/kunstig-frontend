@@ -2,17 +2,33 @@ import coolCat from '../../images/coolcat.jpeg';
 import {Header} from "../Header";
 import './pageNotFound.scss';
 
-export const PageNotFound = () => (
-    <>
-        <Header/>
-        <section className="pageNotFoundContainer">
-            <h1 className="pageNotFoundTitle">Woops, sikker på du skulle hit?</h1>
-            <img src={coolCat} alt={"En kul katt som plaster på såret at du ikke fant det du lette etter"}/>
-            <div>
-                <p>4</p>
-                <p>0</p>
-                <p>4</p>
-            </div>
-        </section>
-    </>
-);
+let titles = []
+for(let i = 0; i < 10; i++) {
+    titles.push(<div className="css">Woops</div>);
+}
+
+let cells = []
+for(let i = 0; i < 50; i++) {
+    cells.push(<div className="cell"/>);
+}
+
+export const PageNotFound = () => {
+
+    return (
+        <>
+            <Header/>
+            <section className="pageNotFoundContainer">
+                {cells.map(cell => cell)}
+                <div className="content">
+                    {titles.map(title => title)}
+                </div>
+                <img src={coolCat} alt={"En kul katt som plaster på såret at du ikke fant det du lette etter"}/>
+                <div>
+                    <p>4</p>
+                    <p>0</p>
+                    <p>4</p>
+                </div>
+            </section>
+        </>
+    )
+};

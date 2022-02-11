@@ -6,6 +6,7 @@ import ArtGenerator from "./components/ArtGenerator"
 import {Gallery} from "./components/Gallery"
 import {Models} from "./components/Models"
 import {ModelsAsyncProvider} from "./context/ModelAsync"
+import {PageNotFound} from "./components/PageNotFound";
 
 export const Entry = () => {
     return (
@@ -20,6 +21,7 @@ export const Entry = () => {
                         <Route path="/om" element={<AboutUs/>}/>
                         <Route path="/generer/:name" element={<ArtGenerator/>}/>
                         <Route path="/generer" element={<ArtGenerator/>}/>
+                        <Route path="*" element={<PageNotFound/>}/>
                     </Routes>
                 </BrowserRouter>
         </ModelsAsyncProvider>

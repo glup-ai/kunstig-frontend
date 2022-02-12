@@ -24,7 +24,8 @@ const Image = ({img, name, setDisplayImage, index}: ImageProps) => {
             <img
                 className="imageContainer"
                 src={img}
-                alt={`Art-piece made by ${name ?? "Kunstig"}`}
+                alt={`Kunstverk laget av ${name ?? "Kunstig"}`}
+                placeholder="blur"
             />
         </div>
     )

@@ -8,3 +8,9 @@ export type GalleryAsync = {
     description?: string,
     images: string[]
 }
+
+export interface ArtGeneratorAsyncState {
+    image?: string;
+    loading: boolean;
+    error: boolean
+}

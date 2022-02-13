@@ -3,10 +3,15 @@ export type Model = {
     displayName: string
 }
 
-export type GalleryAsync = {
+export type GalleryAsyncResponse = {
     displayName?: string,
     description?: string,
     images: string[]
+}
+
+export type GalleryAsyncState = {
+    data?: GalleryAsyncResponse;
+    error: boolean;
 }
 
 export interface ArtGeneratorAsyncState {

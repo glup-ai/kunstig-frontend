@@ -1,5 +1,4 @@
 import coolCat from '../../images/coolcat.jpeg';
-import {Header} from "../Header";
 import './pageNotFound.scss';
 
 let titles = []
@@ -13,10 +12,8 @@ for(let i = 0; i < 50; i++) {
 }
 
 export const PageNotFound = () => {
-    // todo: https://codepen.io/finnhvman/pen/BGmygj
     return (
         <>
-            <Header/>
             <section className="pageNotFoundContainer">
                 <div className="pageNotFoundTitleContainer">
                 {cells.map(cell => cell)}

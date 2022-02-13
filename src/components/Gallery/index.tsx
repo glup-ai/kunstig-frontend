@@ -5,7 +5,8 @@ import './gallery.scss';
 import {Link, useParams} from "react-router-dom";
 import {fetchImagePaths} from "../../utils/async";
 import { Header } from "../Header";
-import { GalleryAsync } from "../../utils/types";
+import {GalleryAsyncState} from "../../utils/types";
+import {SomethingWentWrong} from "../SomethingWentWrong";
 
 interface ImageProps {
     img: string;
@@ -67,12 +68,15 @@ const GenerateArtButton = ({ description, name }: GenerateArtButtonProps) => {
 // TODO: no name from url should fetch images from all models
 export const Gallery: FunctionComponent = () => {
     const { name } = useParams();
-    const [gallery, setGallery] = useState<GalleryAsync>();
+    const [galleryAsyncState, setGalleryAsyncState] = useState<GalleryAsyncState>({
+        error: false,
+        data: undefined
+    });
     const [displayImage, setDisplayImage] = useState<string>()
 
+
     useEffect(() => {
-        fetchImagePaths(name)
-            .then(response => setGallery(response))
+        fetchImagePaths(setGalleryAsyncState, name)
     }, [name])
 
     return (
@@ -82,18 +86,22 @@ export const Gallery: FunctionComponent = () => {
                 <div className={displayImage ? "overlay" : "" }>
                     {displayImage && <DisplayImage img={displayImage} removeSetDisplay={setDisplayImage}/>}
                 </div>
-                <div className="imagesContainer">
-                    <GenerateArtButton description={gallery?.description} name={name} />
-                    {gallery?.images?.map((img, index) =>
-                        <Image
-                                key={index}
-                                index={index}
-                                img={img}
-                                name={name}
-                                setDisplayImage={setDisplayImage}
-                        />
+                {galleryAsyncState.error
+                    ? <div className="galleryErrorContainer"><SomethingWentWrong/></div>
+                    : (
+                        <div className="imagesContainer">
+                            <GenerateArtButton description={galleryAsyncState?.data?.description} name={name}/>
+                            {galleryAsyncState?.data?.images?.map((img, index) =>
+                                <Image
+                                    key={index}
+                                    index={index}
+                                    img={img}
+                                    name={name}
+                                    setDisplayImage={setDisplayImage}
+                                />
+                            )}
+                        </div>
                     )}
-                </div>
             </section>
         </>
     );

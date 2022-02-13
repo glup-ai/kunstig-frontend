@@ -9,7 +9,7 @@ import {getBaseUrl} from '../../utils/utils.js';
 import {ArtGeneratorAsyncState} from "../../utils/types";
 import {ModelsAsyncContext} from "../../context/ModelAsync";
 
-import {Error} from "./Error";
+import {SomethingWentWrong} from "../SomethingWentWrong";
 import {Header} from "../Header";
 import {Spinner} from "../Spinner/Spinner";
 
@@ -66,7 +66,7 @@ export const ArtGenerator: FunctionComponent = () => {
     const options = modelsAsyncState.data?.map(model => ({value: model.name, label: model.displayName})) ?? []
 
     const content = artGeneratorAsyncState.error
-        ? <Error/>
+        ? <SomethingWentWrong/>
         : artGeneratorAsyncState.loading
         ? <Spinner/>
         : artGeneratorAsyncState.image

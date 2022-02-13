@@ -121,7 +121,6 @@
   }
 }
 
-
 .galleryItem {
   box-shadow: none;
   transition: box-shadow 0.2s ease;
@@ -160,6 +159,10 @@
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 5;
+}
+
+.galleryErrorContainer {
+  width: 80vw;
 }
 
 @keyframes animateDisplayImage {

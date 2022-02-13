@@ -21,21 +21,19 @@ export const AboutUs: FunctionComponent = () => {
         <div className="text-content">
           <h1>Om prosjektet </h1>
           <p>
-            Idéen til det første glup-prosjektet var klart. Vi vil lage en modell
-            som kan produsere kunst for oss.
+            Kunstig er en AI som er trent til å lage egen kunst. Ved hjelp av en GAN-arkitektur har den trent opp to
+            moduler; en kunstkritiker og en kunstner. Kunstkritikeren blir trent på ekte data til å gjøre seg opp en mening
+            om hva "god" kunst er. Kunstneren vet ingen ting, men prøver å lære seg å male. Maleriene sender kunstneren til kritikeren
+            for tilbakemelding, og med kunstkritikerens hjelp blir kunstneren sakte men sikkert bedre.
           </p>
           <p>
-            I Kunstig skal vi altså lage og trene et nevralt nettverk, av typen
-            GAN, som kan generere egne malerier. Basert på mange timers trening på
-            annen kunst vil nettverket forsøke å lage egne bilder av samme
-            kvalitet.
+            På denne nettsiden kan dere se Kunstig sine verker, og be om å få et unikt maleri laget til deg. Kunstig har
+            øvd seg inneen forskjellige kunstretninger og det er mulig å utforske samtlige.
           </p>
           <p>
-            Ved å trene nettverket med forskjellige kunstretninger og kunstnere vi
-            selv liker, er håpet å sitte igjen med hvert vårt drømmemaleri på
-            veggen.
+            Videoen dere ser til venstre er Kunstig sine malerier innen abstrakt kunst.
           </p>
-        </div>
+          </div>
       </section>
     </>
   );

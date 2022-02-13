@@ -21,7 +21,7 @@ export const AboutUs: FunctionComponent = () => {
         <div className="text-content">
           <h1>Om prosjektet </h1>
           <p>
-            Kunstig er en AI som er trent til å lage egen kunst. Ved hjelp av en GAN-arkitektur har den trent opp to
+            Kunstig er en AI som er trent til å lage egen kunst. Ved hjelp av en GAN-arkitektur har hen trent to
             moduler; en kunstkritiker og en kunstner. Kunstkritikeren blir trent på ekte data til å gjøre seg opp en mening
             om hva "god" kunst er. Kunstneren vet ingen ting, men prøver å lære seg å male. Maleriene sender kunstneren til kritikeren
             for tilbakemelding, og med kunstkritikerens hjelp blir kunstneren sakte men sikkert bedre.
@@ -31,7 +31,7 @@ export const AboutUs: FunctionComponent = () => {
             øvd seg inneen forskjellige kunstretninger og det er mulig å utforske samtlige.
           </p>
           <p>
-            Videoen dere ser til venstre er Kunstig sine malerier innen abstrakt kunst.
+            Videoen dere ser til venstre er Kunstig sine malerier innen abstrakt kunst, generert i takt med noen friske noter.
           </p>
           </div>
       </section>

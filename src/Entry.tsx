@@ -7,24 +7,27 @@ import {Gallery} from "./components/Gallery"
 import {Models} from "./components/Models"
 import {ModelsAsyncProvider} from "./context/ModelAsync"
 import {PageNotFound} from "./components/PageNotFound";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 export const Entry = () => {
     return (
         <React.StrictMode>
-            <ModelsAsyncProvider>
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/" element={<App/>}/>
-                        <Route path="/modeller" element={<Models/>}/>
-                        <Route path="/galleri/:name" element={<Gallery/>}/>
-                        <Route path="/galleri" element={<Gallery/>}/>
-                        <Route path="/om" element={<AboutUs/>}/>
-                        <Route path="/generer/:name" element={<ArtGenerator/>}/>
-                        <Route path="/generer" element={<ArtGenerator/>}/>
-                        <Route path="*" element={<PageNotFound/>}/>
-                    </Routes>
-                </BrowserRouter>
-        </ModelsAsyncProvider>
+            <ErrorBoundary>
+                <ModelsAsyncProvider>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<App/>}/>
+                            <Route path="/modeller" element={<Models/>}/>
+                            <Route path="/galleri/:name" element={<Gallery/>}/>
+                            <Route path="/galleri" element={<Gallery/>}/>
+                            <Route path="/om" element={<AboutUs/>}/>
+                            <Route path="/generer/:name" element={<ArtGenerator/>}/>
+                            <Route path="/generer" element={<ArtGenerator/>}/>
+                            <Route path="*" element={<PageNotFound/>}/>
+                        </Routes>
+                    </BrowserRouter>
+            </ModelsAsyncProvider>
+        </ErrorBoundary>
       </React.StrictMode>
     )
 }

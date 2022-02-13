@@ -1,0 +1,62 @@
+@import '../../utils/variables';
+$border-width: 10px;
+
+.errorBoundaryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+
+  h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 2rem;
+    color: $tertiary-color;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 1rem;
+    color: $secondary-color;
+  }
+
+  .errorBoundaryImageContainer {
+    width: fit-content;
+
+    img {
+      max-width: 512px;
+      max-height: 512px;
+      min-width: 300px;
+      min-height: 300px;
+    }
+
+    div {
+
+    }
+
+    .red {
+      border: $border-width solid #e50000;
+    }
+
+    .orange {
+      border: $border-width solid #ff8d00;
+    }
+
+    .yellow {
+      border: $border-width solid #ffee00;
+    }
+
+    .green {
+      border: $border-width solid #028121;
+    }
+
+    .blue {
+      border: $border-width solid #004cff;
+    }
+
+    .purple {
+      border: $border-width solid #770088;
+    }
+  }
+
+}

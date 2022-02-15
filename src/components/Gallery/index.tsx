@@ -65,7 +65,6 @@ const GenerateArtButton = ({ description, name }: GenerateArtButtonProps) => {
             </Link>
         </div>)
 }
-// TODO: no name from url should fetch images from all models
 export const Gallery: FunctionComponent = () => {
     const { name } = useParams();
     const [galleryAsyncState, setGalleryAsyncState] = useState<GalleryAsyncState>({

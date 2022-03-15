@@ -58,10 +58,6 @@ export const ArtGenerator: FunctionComponent = () => {
         fetchImage();
     }, [fetchImage]);
 
-    useEffect(() => {
-
-    })
-
     const downloadImage = (img) => {
         if (img) {
             saveAs(img, 'image.jpg');

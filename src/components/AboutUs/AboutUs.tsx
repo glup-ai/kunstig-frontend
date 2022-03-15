@@ -1,8 +1,25 @@
 import { FunctionComponent } from 'react';
 import './index.css';
 import { Header } from "../Header";
+import { useParams } from 'react-router-dom';
 
 export const AboutUs: FunctionComponent = () => {
+  const {name} = useParams();
+  console.log(name)
+  let embedToken= '';
+  if (name === 'portretterteRariteter'){
+    embedToken = 'qqKTq2M8Hw0'
+  } else if (name === 'nonfigurativAbstrusivitet'){
+    embedToken = 'EV6QcgVShic'
+  } else if (name === 'galaktiskeSfærer') {
+    embedToken = 'AmQJN2zGk1M'
+  }
+  else {
+    embedToken = 'qqKTq2M8Hw0'
+
+  }
+
+
   return (
     <>
       <Header />
@@ -11,7 +28,7 @@ export const AboutUs: FunctionComponent = () => {
           <iframe
             width="1024"
             height="1024"
-            src="https://www.youtube.com/embed/dwAOkDgW0Bg?autoplay=1"
+            src={"https://www.youtube.com/embed/" + embedToken + "?autoplay=1"}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

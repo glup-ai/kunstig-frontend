@@ -97,7 +97,33 @@
 
 
 }
+.generateArtFromModelLink {
+  color: $primary-color;
+  background-color: $secondary-color;
+  width: 100%;
 
+  text-decoration: underline;
+  font-size: 18px;
+  display: block;
+  font-weight: normal;
+  transition: font-weight, letter-spacing 0.4s ease;
+  letter-spacing: normal;
+  padding: 0 5px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  &:not(:first-child){
+    margin-top: 3rem;
+
+  }
+
+  &:hover {
+    font-weight: bolder;
+    letter-spacing: 2px;
+  }
+}
 .generateArtLink {
   color: $primary-color;
   background-color: $secondary-color;

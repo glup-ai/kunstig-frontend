@@ -73,6 +73,11 @@ const GenerateArtButton = ({ description, name }: GenerateArtButtonProps) => {
             <Link className="generateArtLink" to={`/generer/${name}`}>
                 Lag din egen kunst
             </Link>
+            {(name === 'portretterteRariteter' || name === 'nonfigurativAbstrusivitet' || name === 'galaktiskeSfærer') &&
+                <Link className="generateArtLink" to={`/om/${name}`}>
+                    Se video
+                </Link>
+            }
         </div>)
 }
 

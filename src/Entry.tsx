@@ -22,6 +22,7 @@ export const Entry = () => {
                             <Route path="/galleri/:name" element={<Gallery/>}/>
                             <Route path="/galleri" element={<Gallery/>}/>
                             <Route path="/om" element={<AboutUs/>}/>
+                            <Route path="/om/:name" element={<AboutUs/>}/>
                             <Route path="/generer/:name" element={<ArtGenerator/>}/>
                             <Route path="/generer" element={<ArtGenerator/>}/>
                             <Route path="*" element={<><Header/><PageNotFound/></>}/>

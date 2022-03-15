@@ -87,7 +87,7 @@ export const Gallery: FunctionComponent = () => {
     useEffect(() => {
         fetchImagePaths(setGalleryAsyncState, name)
     }, [name])
-
+    console.log(galleryAsyncState?.data?.images)
     return (
         <>
             <Header/>

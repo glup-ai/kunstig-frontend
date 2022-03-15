@@ -1,4 +1,4 @@
-import {FunctionComponent, useCallback, useContext, useEffect, useState} from 'react';
+import {Dispatch, FunctionComponent, SetStateAction, useCallback, useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -16,6 +16,40 @@ import {Spinner} from "../Spinner/Spinner";
 import './artgenerator.scss';
 import { appInsights } from '../../appInsights/appInsights';
 
+type DropdownOption = {
+    value: string;
+    label: string;
+}
+
+interface DropdownTestProps {
+    options: DropdownOption[];
+    setCurrentModel: Dispatch<SetStateAction<string>>;
+    initialValue?: string;
+}
+const DropdownTest: FunctionComponent<DropdownTestProps> = ({options, setCurrentModel, initialValue}) => {
+    const [value, setValue] = useState(initialValue)
+    return (
+        <div className="artgeneratorDropdownTest">
+        <select
+            onChange={event => {
+                setValue(event.target.value)
+                setCurrentModel(event.target.value)
+            }}
+            placeholder="Velg en AI-kunstner"
+            value={value}
+        >
+            {options.map(option => (
+                <option
+                    className={value === option.value ? "select-selected" : ""}
+                    key={option.value}
+                    value={option.value}
+                    label={option.label}
+                />
+            ))}
+        </select>
+        </div>
+    )
+}
 export const ArtGenerator: FunctionComponent = () => {
     const {name} = useParams();
 
@@ -83,6 +117,11 @@ export const ArtGenerator: FunctionComponent = () => {
             <Header/>
             <section className="artgeneratorContainer">
                 <div className="artgeneratorDropdownContainer">
+                    {options && <DropdownTest
+                        options={options}
+                        setCurrentModel={setCurrentModel}
+                        initialValue={initialDisplayName ?? undefined}
+                    />}
                     {options && <Dropdown
                         options={options}
                         onChange={event => setCurrentModel(event.value)}

@@ -33,9 +33,24 @@
     font-weight: bolder;
     border: none;
 }
+.artgeneratorDropdownTest {
+    background-color: $primary-color;
+    color: $tertiary-color;
+    width: 100%;
+    font-weight: bolder;
+    font-family: "Roboto Mono", monospace;
+    font-size: 1.2rem;
+    border: 3px solid $tertiary-color;
+    padding: 0.8rem;
+    margin: 20px 0;
+
+    position: relative;
+
+
+}
 
 .artgeneratorDropdownMenu {
-    background-color: $tertiary-color;
+    background-color: $secondary-color;
 }
 
 .artgeneratorDropdownArrow {

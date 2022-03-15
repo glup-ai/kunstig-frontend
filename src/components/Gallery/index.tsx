@@ -61,7 +61,7 @@ const GenerateArtButton = ({ description, name }: GenerateArtButtonProps) => {
     if (!description) {
         return (<div className="galleryDescription">
             {modelsAsyncState?.data?.map(model =>
-                <Link className="generateArtLink" to={`/generer/${model.name}`} key={model.name}>
+                <Link className="generateArtFromModelLink" to={`/generer/${model.name}`} key={model.name}>
                     {model.displayName}
                 </Link>
             )}

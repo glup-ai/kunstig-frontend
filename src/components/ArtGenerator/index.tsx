@@ -14,6 +14,7 @@ import {Header} from "../Header";
 import {Spinner} from "../Spinner/Spinner";
 
 import './artgenerator.scss';
+import { appInsights } from '../../appInsights/appInsights.js';
 
 export const ArtGenerator: FunctionComponent = () => {
     const {name} = useParams();
@@ -39,6 +40,10 @@ export const ArtGenerator: FunctionComponent = () => {
                     error = true;
                     setArtGeneratorAsyncState({ image: undefined, loading: false, error: true })
                 }
+                appInsights.appInsights.trackEvent({name: 'fetchImage', properties: {
+                    currentModel: currentModel,
+                    responseStatus: response.status
+                }})
                 return response;
             })
             .then((response) => response.blob())
@@ -60,6 +65,9 @@ export const ArtGenerator: FunctionComponent = () => {
     const downloadImage = (img) => {
         if (img) {
             saveAs(img, 'image.jpg');
+            appInsights.appInsights.trackEvent({name: 'downloadImage', properties: {
+                currentModel: currentModel
+            }})
         }
     };
 

@@ -14,7 +14,7 @@ import {Header} from "../Header";
 import {Spinner} from "../Spinner/Spinner";
 
 import './artgenerator.scss';
-import { appInsights } from '../../appInsights/appInsights.js';
+import { appInsights } from '../../appInsights/appInsights';
 
 export const ArtGenerator: FunctionComponent = () => {
     const {name} = useParams();

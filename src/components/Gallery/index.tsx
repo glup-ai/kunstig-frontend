@@ -27,6 +27,7 @@ const Image = ({img, name, setDisplayImage, index}: ImageProps) => {
                 src={img}
                 alt={`Kunstverk laget av ${name ?? "Kunstig"}`}
                 placeholder="blur"
+                loading="lazy"
             />
         </div>
     )

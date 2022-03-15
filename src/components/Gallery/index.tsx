@@ -1,4 +1,4 @@
-import {Dispatch, FunctionComponent, SetStateAction, useEffect, useState} from "react";
+import {Dispatch, FunctionComponent, SetStateAction, useContext, useEffect, useState} from "react";
 import Tilt from 'react-parallax-tilt';
 
 import './gallery.scss';
@@ -7,6 +7,7 @@ import {fetchImagePaths} from "../../utils/async";
 import { Header } from "../Header";
 import {GalleryAsyncState} from "../../utils/types";
 import {SomethingWentWrong} from "../SomethingWentWrong";
+import {ModelsAsyncContext} from "../../context/ModelAsync";
 
 interface ImageProps {
     img: string;
@@ -55,8 +56,16 @@ interface GenerateArtButtonProps {
 }
 
 const GenerateArtButton = ({ description, name }: GenerateArtButtonProps) => {
+    const {modelsAsyncState} = useContext(ModelsAsyncContext);
+
     if (!description) {
-        return <></>
+        return (<div className="galleryDescription">
+            {modelsAsyncState?.data?.map(model =>
+                <Link className="generateArtLink" to={`/generer/${model.name}`} key={model.name}>
+                    {model.displayName}
+                </Link>
+            )}
+        </div>)
     }
     return (
         <div className="galleryDescription">
@@ -66,6 +75,7 @@ const GenerateArtButton = ({ description, name }: GenerateArtButtonProps) => {
             </Link>
         </div>)
 }
+
 export const Gallery: FunctionComponent = () => {
     const { name } = useParams();
     const [galleryAsyncState, setGalleryAsyncState] = useState<GalleryAsyncState>({
@@ -73,7 +83,6 @@ export const Gallery: FunctionComponent = () => {
         data: undefined
     });
     const [displayImage, setDisplayImage] = useState<string>()
-
 
     useEffect(() => {
         fetchImagePaths(setGalleryAsyncState, name)

@@ -9,6 +9,7 @@ import {ModelsAsyncProvider} from "./context/ModelAsync"
 import {PageNotFound} from "./components/PageNotFound";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import {Header} from "./components/Header";
+import {WrittenArtGenerator} from "./components/WrittenArtGenerator";
 
 export const Entry = () => {
     return (
@@ -25,6 +26,8 @@ export const Entry = () => {
                             <Route path="/om/:name" element={<AboutUs/>}/>
                             <Route path="/generer/:name" element={<ArtGenerator/>}/>
                             <Route path="/generer" element={<ArtGenerator/>}/>
+                            <Route path="/skriv-kunst" element={<WrittenArtGenerator/>}/>
+                            <Route path="/skriv-kunst" element={<WrittenArtGenerator/>}/>
                             <Route path="*" element={<><Header/><PageNotFound/></>}/>
                         </Routes>
                     </BrowserRouter>

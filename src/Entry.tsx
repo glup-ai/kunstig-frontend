@@ -10,6 +10,7 @@ import {PageNotFound} from "./components/PageNotFound";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import {Header} from "./components/Header";
 import {WrittenArtGenerator} from "./components/WrittenArtGenerator";
+import {Showcase} from "./components/Showcase";
 
 export const Entry = () => {
     return (
@@ -28,6 +29,8 @@ export const Entry = () => {
                             <Route path="/generer" element={<ArtGenerator/>}/>
                             <Route path="/skriv-kunst" element={<WrittenArtGenerator/>}/>
                             <Route path="/skriv-kunst" element={<WrittenArtGenerator/>}/>
+                            <Route path="/showcase/:name" element={<Showcase/>}/>
+                            <Route path="/showcase" element={<Showcase/>}/>
                             <Route path="*" element={<><Header/><PageNotFound/></>}/>
                         </Routes>
                     </BrowserRouter>

@@ -41,7 +41,10 @@ export const Showcase: FunctionComponent = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const {modelsAsyncState} = useContext(ModelsAsyncContext);
-  const modelName = getModelName(name, modelsAsyncState?.data?.map(model => model.name))
+  const modelName = getModelName(
+    name,
+    modelsAsyncState?.data?.filter(model => model.name !== "munch")?.map(model => model.name)
+  )
   const images = showcaseAsyncState?.data?.images
 
   useEffect(() => {

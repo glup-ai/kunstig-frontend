@@ -4,7 +4,9 @@
 
 @keyframes fadeInAndOut {
   0% { opacity: 0; }
+  5% { opacity: 0; }
   33% { opacity: 1; }
   66% { opacity: 1; }
+  95% { opacity: 0; }
   100% { opacity: 0; }
 }

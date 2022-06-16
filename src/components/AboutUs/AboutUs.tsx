@@ -44,11 +44,11 @@ export const AboutUs: FunctionComponent = () => {
             for tilbakemelding, og med kunstkritikerens hjelp blir kunstneren sakte men sikkert bedre.
           </p>
           <p>
-            På denne nettsiden kan dere se Kunstig sine verker, og be om å få et unikt maleri laget til deg. Kunstig har
-            øvd seg inneen forskjellige kunstretninger og det er mulig å utforske samtlige.
+            På denne nettsiden kan du se Kunstig sine verker, og be om å få et unikt maleri laget til deg. Kunstig har
+            øvd seg innen mangfoldige kunstretninger og det er mulig å utforske samtlige.
           </p>
           <p>
-            Videoen dere ser til venstre er Kunstig sine malerier innen abstrakt kunst, generert i takt med noen friske noter.
+            Videoen dere ser til venstre er Kunstig sine malerier av absurde protretter, generert i takt med noen friske noter.
           </p>
           </div>
       </section>

@@ -1,6 +1,5 @@
 import {FunctionComponent, useCallback, useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import 'react-dropdown/style.css';
 
 import {saveAs} from 'file-saver';
 
@@ -14,7 +13,7 @@ import {Spinner} from "../Spinner/Spinner";
 
 import './artgenerator.scss';
 import {appInsights} from '../../appInsights/appInsights';
-import {Dropdown2} from "../Dropdown";
+import {Dropdown} from "../Dropdown";
 
 export const ArtGenerator: FunctionComponent = () => {
   const {name} = useParams();
@@ -86,7 +85,7 @@ export const ArtGenerator: FunctionComponent = () => {
     <>
       <Header/>
       <section className="artgeneratorContainer">
-        <Dropdown2 options={options} handleOnChange={setCurrentModel}/>
+        <Dropdown options={options} handleOnChange={setCurrentModel} placeholder={initialDisplayName}/>
         <div className="artgeneratorImageContainer">
           <div className="artgeneratorImage">
             {content}

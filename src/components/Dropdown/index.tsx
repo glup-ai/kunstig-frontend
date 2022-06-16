@@ -3,10 +3,11 @@ import './dropdown.scss';
 
 interface DropdownProps {
   options: { value: string, label: string }[];
-  handleOnChange: Dispatch<SetStateAction<string>>
+  handleOnChange: Dispatch<SetStateAction<string>>;
+  placeholder?: string;
 }
 
-export const Dropdown2: FunctionComponent<DropdownProps> = ({options, handleOnChange}) => {
+export const Dropdown: FunctionComponent<DropdownProps> = ({options, handleOnChange, placeholder}) => {
   const [value, setValue] = useState<string | undefined>()
   const [showOptions, setShowOptions] = useState(false)
 
@@ -16,6 +17,7 @@ export const Dropdown2: FunctionComponent<DropdownProps> = ({options, handleOnCh
       handleOnChange(optionValue)
     }
   }, [handleOnChange, options, value])
+
   return (
     <div className="dropdownContainer">
       <div
@@ -23,7 +25,7 @@ export const Dropdown2: FunctionComponent<DropdownProps> = ({options, handleOnCh
         onClick={() => setShowOptions(!showOptions)}
       >
         <div className="dropdownTextContainer">
-          <div className="dropdownText">{value ?? "Velg en AI-kunstner"}</div>
+          <div className="dropdownText">{value ?? placeholder ?? "Velg en AI-kunstner"}</div>
           <div className={`dropdownIcon ${showOptions ? "open" : "closed"}`}/>
         </div>
 
@@ -43,8 +45,8 @@ interface DropdownOptionsProps {
 export const DropdownOptions: FunctionComponent<DropdownOptionsProps> = ({options, handleOnChange}) => {
   return (
     <div className="dropdownOptions">
-      {options.map(option =>
-        <div onClick={() => handleOnChange(option.label)} className="dropdownOption">{option.label}</div>
+      {options.map((option, index) =>
+        <div key={index} onClick={() => handleOnChange(option.label)} className="dropdownOption">{option.label}</div>
       )}
     </div>
   )

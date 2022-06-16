@@ -85,7 +85,9 @@ export const ArtGenerator: FunctionComponent = () => {
     <>
       <Header/>
       <section className="artgeneratorContainer">
-        <Dropdown options={options} handleOnChange={setCurrentModel} placeholder={initialDisplayName}/>
+        <div className="artgeneratorDropdownContainer">
+          <Dropdown options={options} handleOnChange={setCurrentModel} placeholder={initialDisplayName}/>
+        </div>
         <div className="artgeneratorImageContainer">
           <div className="artgeneratorImage">
             {content}

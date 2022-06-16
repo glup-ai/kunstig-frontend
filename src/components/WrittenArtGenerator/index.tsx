@@ -1,4 +1,4 @@
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useContext, useState} from "react";
 import {Header} from "../Header";
 import "./writtenArtGenerator.scss";
 import {getBaseUrl} from "../../utils/utils";
@@ -6,11 +6,14 @@ import {appInsights} from "../../appInsights/appInsights";
 import {ArtGeneratorAsyncState} from "../../utils/types";
 import {SomethingWentWrong} from "../SomethingWentWrong";
 import {Spinner} from "../Spinner/Spinner";
+import {Dropdown} from "../Dropdown";
+import {ModelsAsyncContext} from "../../context/ModelAsync";
 
 
 export const WrittenArtGenerator = () => {
   const [inputValue, setInputvalue] = useState("")
-  const modelName = "psykadeliskOverenstemmelse"
+  const [modelValue, setModelValue] = useState("psykadeliskOverenstemmelse")
+  const {modelsAsyncState} = useContext(ModelsAsyncContext);
 
   const [artGeneratorAsyncState, setArtGeneratorAsyncState] = useState<ArtGeneratorAsyncState>({
     image: undefined,
@@ -24,7 +27,7 @@ export const WrittenArtGenerator = () => {
     fetch(getBaseUrl() + 'generate', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({"model": modelName, "inputString": inputValue})
+      body: JSON.stringify({"model": modelValue, "inputString": inputValue})
     })
       .then((response) => {
         if (!response.ok) {
@@ -32,7 +35,7 @@ export const WrittenArtGenerator = () => {
           setArtGeneratorAsyncState({ image: undefined, loading: false, error: true })
         }
         appInsights.appInsights.trackEvent({name: 'fetchImage', properties: {
-            currentModel: modelName,
+            currentModel: modelValue,
             inputString: inputValue,
             responseStatus: response.status
           }})
@@ -58,6 +61,14 @@ export const WrittenArtGenerator = () => {
     <section>
       <Header/>
       <div className="writtenArtGeneratorContainer">
+        {modelsAsyncState?.data &&
+            <div className="writtenArtGeneratorDropdownContainer">
+              <Dropdown
+                  options={modelsAsyncState?.data.map(model => ({value: model.name, label: model.displayName}))}
+                  handleOnChange={setModelValue}
+              />
+            </div>
+        }
         <input
           type="text"
           placeholder="Skriv et ord..."

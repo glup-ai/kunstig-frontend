@@ -19,9 +19,8 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({options, handleOnCha
   }, [handleOnChange, options, value])
 
   return (
-    <div className="dropdownContainer">
       <div
-        className="dropdownSelect"
+        className="dropdownContainer"
         onClick={() => setShowOptions(!showOptions)}
       >
         <div className="dropdownTextContainer">
@@ -32,7 +31,6 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({options, handleOnCha
         {showOptions && <DropdownOptions options={options} handleOnChange={setValue}/>}
 
       </div>
-    </div>
   )
 }
 

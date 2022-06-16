@@ -29,7 +29,7 @@
     font-family: 'Roboto Mono', monospace;
 
     @media screen and (min-width: $breakpoint-mobile) {
-      font-size: 34px;
+      font-size: 25px;
 
     }
     @media screen and (max-width: $breakpoint-mobile) {
@@ -73,3 +73,7 @@
   }
 }
 
+.writtenArtGeneratorDropdownContainer {
+  width: 100%;
+  margin-bottom: 50px;
+}
